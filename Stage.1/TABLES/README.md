@@ -114,13 +114,13 @@ CREATE TABLE Payment (
 
 **Data Generate – Three Ways:**
 •	Generate Budget data with Python Script.
- !["Image description"](Stage.1/TABLES/Python Script.png)
+ !["Image description"](Stage.1/TABLES/GENERATE/Python_Script.png)
  
 •	Generate Invoice data with Mockaroo’s website.
-!["Image description"](Stage.1/TABLES/Mockaroo Generator.png)
+!["Image description"](Stage.1/TABLES/GENERATE/Mockaroo_Generator.png)
 
 •	Generate Payment data with Data Generator of PLSQL.
- !["Image description"](Stage.1/TABLES/PLSQL Data Generator.png)
+ !["Image description"](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
  
 **Six data imports with PLSQL:**
 
