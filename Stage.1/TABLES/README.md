@@ -1,13 +1,15 @@
-Shay Mordechai			315689042
-Yair Miller				314695438
+•	**Shay Mordechai**			315689042
 
-School Management System
+•	**Yair Miller**				314695438
 
-Description:
+***School Management System***
+
+**Description:**
 
 This system is designed to manage a school's administrative operations, including employee information, budgeting, procurement, and financial transactions.
 
 Data Entities:
+
 •	***Employee*** ( **Employee_ID**,Employee_Name, Seniority, Contact_Information )
 
 •	***Budget*** ( **Budget_Code**, Employee_ID, Expense_Category, Budget_Amount, Budget_Year)
@@ -20,25 +22,37 @@ Data Entities:
 
 •	***Payment*** ( **Payment_ID**, Employee_ID, Amount, Payment_Purpose, Payment_Date )
 
-Relationships:
+
+**Relationships:**
+
 •	An Employee can be linked to multiple Budgets (through Employee_ID in Budget).
+
 •	An Employee can place multiple Orders and receive multiple Payments (through Employee_ID in Orders and Payment).
+
 •	A Supplier can have many Orders placed with them (through Supplier_ID in Orders).
+
 •	An Order is linked to a single Supplier and a single Invoice (through Supplier_ID and Order_ID in foreign keys).
+
 •	An Invoice is linked to a single Order (through Order_ID in foreign key).
-Functionality:
+
+**Functionality:**
+
 This database schema allows you to manage various aspects of a school's financial operations:
+
 •	Track employee information and their roles.
+
 •	Define and manage budgets for different expense categories.
+
 •	Maintain supplier details and their inventory (if relevant).
+
 •	Create and track purchase orders placed with suppliers.
+
 •	Process invoices received from suppliers for placed orders.
+
 •	Record payments made to employees for salaries, bonuses, or grants.
+
 By querying and manipulating data in these tables, you can generate reports, analyze spending patterns, track budget utilization, and manage employee finances effectively.
-Additional Considerations:
-•	You might want to consider adding tables for students, courses, classes, and enrollments to create a more comprehensive school management system.
-•	Depending on your specific needs, you can add more attributes to existing tables or create new tables to capture additional data relevant to your school's operations.
-•	Remember to enforce data integrity through constraints and define appropriate data
+
 
 **Create Tables:**
 
@@ -93,25 +107,33 @@ CREATE TABLE Payment (
 );
 
 **ERD:**
- 
+ !["Image description"](Stage.1/ERD/ERD.png)
 
 **DSD:**
- 
+ !["Image description"](Stage.1/DSD/DSD.png)
 
-Data Generate – Three Ways:
-First, generate Budget data with Python Script.
+**Data Generate – Three Ways:**
+•	Generate Budget data with Python Script.
+ !["Image description"](Stage.1/TABLES/Python Script.png)
  
-Second, generate Invoice data with Mockaroo’s website.
- 
+•	Generate Invoice data with Mockaroo’s website.
+!["Image description"](Stage.1/TABLES/Mockaroo Generator.png)
 
-Threed, generate Payment data with Data Generator of PLSQL.
+•	Generate Payment data with Data Generator of PLSQL.
+ !["Image description"](Stage.1/TABLES/PLSQL Data Generator.png)
  
-Six data imports with PLSQL:
+**Six data imports with PLSQL:**
+
 Employee – 500 records. 
+!["Image description"](path/to/your/image.png)
 Budget – 477 records. 
+!["Image description"](path/to/your/image.png)
 Orders – 500 records. 
+!["Image description"](path/to/your/image.png)
 Payment – 500 records. 
+!["Image description"](path/to/your/image.png)
 Orders – 500 records. 
+!["Image description"](path/to/your/image.png)
 
 
 
