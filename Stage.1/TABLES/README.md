@@ -4,14 +4,20 @@ Yair Miller				314695438
 School Management System
 
 Description:
+
 This system is designed to manage a school's administrative operations, including employee information, budgeting, procurement, and financial transactions.
 
 Data Entities:
 •	***Employee*** ( **Employee_ID**,Employee_Name, Seniority, Contact_Information )
+
 •	***Budget*** ( **Budget_Code**, Employee_ID, Expense_Category, Budget_Amount, Budget_Year)
+
 •	***Supplier*** ( **Supplier_ID**, Supplier_Name, Contact_Information, Inventory )
+
 •	***Orders*** ( **Order_ID**, Supplier_ID, Employee_ID, Quantity )
+
 •	***Invoice*** ( **Invoice_ID**, Order_ID, Invoice_Cost, Invoice_Date )
+
 •	***Payment*** ( **Payment_ID**, Employee_ID, Amount, Payment_Purpose, Payment_Date )
 
 Relationships:
