@@ -4,7 +4,7 @@
 
                                                     School Management System
 
-**Description:**
+## Description:
 
 This system is designed to manage a school's administrative operations, including employee information, budgeting, procurement, and financial transactions.
 
@@ -23,7 +23,7 @@ Data Entities:
 •	***Payment*** ( **Payment_ID**, _Employee_ID_, Amount, Payment_Purpose, Payment_Date )
 
 
-**Relationships:**
+## Relationships:
 
 • An _Employee_ may be associated with multiple _Budgets_ (via Employee_ID in Budget).
 
@@ -54,7 +54,7 @@ This database schema allows you to manage various aspects of a school's financia
 • Record payments made to employees for salaries, bonuses, or grants, enabling efficient payroll processing and financial reporting.
 
 
-**Create Tables:**
+## Create Tables:
 
 CREATE TABLE Employee (
 
@@ -147,14 +147,14 @@ CREATE TABLE Invoice (
       
   );
 
-**ERD:**
+## ERD:
  ![Python Script](Stage.1/TABLES/GENERATE/Python_Script.png)
 
 
-**DSD:**
+## DSD:
  !["Image description"](Stage.1/DSD/DSD.png)
 
-**Data Generate – Three Ways:**
+## Data Generate – Three Ways:
 •	Generate Budget data with Python Script.
  !["Image description"](Stage.1/TABLES/GENERATE/Python_Script.png)
  
@@ -164,7 +164,7 @@ CREATE TABLE Invoice (
 •	Generate Payment data with Data Generator of PLSQL.
  !["Image description"](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
  
-**Six data imports with PLSQL:**
+## Six data imports with PLSQL:
 
 Employee – 500 records. 
 !["Image description"](Stage.1/TABLES/IMPOTE/image.png)
@@ -179,6 +179,9 @@ Payment – 500 records.
 
 
 
+
+## New Section
+This is a new section added to the README file.
 
 ## New Section
 This is a new section added to the README file.
