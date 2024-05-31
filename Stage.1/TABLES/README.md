@@ -1,6 +1,6 @@
                                                 •	Shay Mordechai			315689042
 
-                                                •	Yair Miller				314695438
+                                                •	Yair Miller			314695438
 
 ___School Management System___
 
