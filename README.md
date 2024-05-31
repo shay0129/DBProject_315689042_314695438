@@ -2,7 +2,7 @@
 
 •	Yair Miller			314695438
 
-                                                **School Management System**
+                                                    School Management System
 
 **Description:**
 
