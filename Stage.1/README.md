@@ -1,8 +1,8 @@
-                                                •	Shay Mordechai			315689042
+•	Shay Mordechai			315689042
 
-                                                •	Yair Miller			314695438
+•	Yair Miller			314695438
 
-___School Management System___
+                                                    School Management System
 
 **Description:**
 
@@ -179,3 +179,6 @@ Payment – 500 records.
 
 
 
+
+## New Section
+This is a new section added to the README file.
