@@ -2,7 +2,7 @@
 
 •	**Yair Miller**				314695438
 
-***School Management System***
+___School Management System___
 
 **Description:**
 
@@ -12,46 +12,46 @@ Data Entities:
 
 •	***Employee*** ( **Employee_ID**,Employee_Name, Seniority, Contact_Information )
 
-•	***Budget*** ( **Budget_Code**, Employee_ID, Expense_Category, Budget_Amount, Budget_Year)
+•	***Budget*** ( **Budget_Code**, _Employee_ID_, Expense_Category, Budget_Amount, Budget_Year)
 
 •	***Supplier*** ( **Supplier_ID**, Supplier_Name, Contact_Information, Inventory )
 
-•	***Orders*** ( **Order_ID**, Supplier_ID, Employee_ID, Quantity )
+•	***Invoice*** ( **Invoice_ID**, _Supplier_ID_, Invoice_Cost, Invoice_Date )
 
-•	***Invoice*** ( **Invoice_ID**, Order_ID, Invoice_Cost, Invoice_Date )
+•	***Orders*** ( **Order_ID**, _Supplier_ID_, _Employee_ID_, Quantity )
 
-•	***Payment*** ( **Payment_ID**, Employee_ID, Amount, Payment_Purpose, Payment_Date )
+•	***Payment*** ( **Payment_ID**, _Employee_ID_, Amount, Payment_Purpose, Payment_Date )
 
 
 **Relationships:**
 
-•	An Employee can be linked to multiple Budgets (through Employee_ID in Budget).
+• An _Employee_ may be associated with multiple _Budgets_ (via Employee_ID in Budget).
 
-•	An Employee can place multiple Orders and receive multiple Payments (through Employee_ID in Orders and Payment).
+• An _Employee_ can initiate multiple Orders and receive multiple _Payments_ (via Employee_ID in Orders and Payment).
 
-•	A Supplier can have many Orders placed with them (through Supplier_ID in Orders).
+• A _Supplier_ can have multiple _Orders_ placed with them (via Supplier_ID in Orders).
 
-•	An Order is linked to a single Supplier and a single Invoice (through Supplier_ID and Order_ID in foreign keys).
+• Each _Order_ is tied to a single Supplier and a single _Invoice_ (via Supplier_ID and Order_ID in foreign keys).
 
-•	An Invoice is linked to a single Order (through Order_ID in foreign key).
+• Each _Invoice_ is linked to a single _Order_ (via Order_ID in foreign key).
+
+• Each _Supplier_ must have exactly one Invoice associated with them, and each Invoice must be associated with exactly one _Supplier_.
 
 **Functionality:**
 
 This database schema allows you to manage various aspects of a school's financial operations:
 
-•	Track employee information and their roles.
+•	 Record and manage employee information, including their roles and contact details.
 
-•	Define and manage budgets for different expense categories.
+• Define and track budgets allocated to different expense categories, ensuring efficient financial management.
 
-•	Maintain supplier details and their inventory (if relevant).
+• Maintain supplier details, including their names, contact information, and inventory levels (if applicable).
 
-•	Create and track purchase orders placed with suppliers.
+• Create and manage purchase orders placed with suppliers, tracking details such as order quantities and delivery dates.
 
-•	Process invoices received from suppliers for placed orders.
+• Process invoices received from suppliers for placed orders, ensuring accurate billing and payment reconciliation.
 
-•	Record payments made to employees for salaries, bonuses, or grants.
-
-By querying and manipulating data in these tables, you can generate reports, analyze spending patterns, track budget utilization, and manage employee finances effectively.
+• Record payments made to employees for salaries, bonuses, or grants, enabling efficient payroll processing and financial reporting.
 
 
 **Create Tables:**
@@ -66,7 +66,7 @@ CREATE TABLE Employee (
 
 CREATE TABLE Budget (
    Budget_Code INT PRIMARY KEY,
-   Employee_ID NUMBER(4),
+   Employee_ID NUMBER(4), -- Each budget must be associated with an employee
    Expense_Category VARCHAR(50),
    Budget_Amount DECIMAL(10,2),
    Budget_Year NUMBER(4),
@@ -80,31 +80,34 @@ CREATE TABLE Supplier (
    Inventory DECIMAL(10,2)
 );
 
-CREATE TABLE Orders (
-   Order_ID INT PRIMARY KEY,
-   Supplier_ID INT,
-   Employee_ID INT,
-   Quantity INT,
-   FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID),
+CREATE TABLE Invoice (
+   Invoice_ID INT PRIMARY KEY,
+   Supplier_ID INT, -- Each invoice must be associated with a supplier
+   Invoice_Cost DECIMAL(10,2),
+   Invoice_Date DATE,
    FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID)
 );
 
-CREATE TABLE Invoice (
-   Invoice_ID INT PRIMARY KEY,
-   Order_ID INT,
-   Invoice_Cost DECIMAL(10,2),
-   Invoice_Date DATE,
-   FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID)
+CREATE TABLE Orders (
+   Order_ID INT PRIMARY KEY,
+   Supplier_ID INT, -- Each order must be associated with a supplier
+   Employee_ID INT, -- Each order must be associated with an employee
+   Invoice_ID INT,
+   Quantity INT,
+   FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID),
+   FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID),
+   FOREIGN KEY (Invoice_ID) REFERENCES Invoice(Invoice_ID)
 );
 
 CREATE TABLE Payment (
    Payment_ID INT PRIMARY KEY,
-   Employee_ID INT,
+   Employee_ID INT, -- Each payment must be associated with an employee
    Amount DECIMAL(10,2),
    Payment_Purpose VARCHAR(20) CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant')),
    Payment_Date DATE,
    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 );
+
 
 **ERD:**
  !["Image description"](Stage.1/ERD/ERD.png)
@@ -125,15 +128,15 @@ CREATE TABLE Payment (
 **Six data imports with PLSQL:**
 
 Employee – 500 records. 
-!["Image description"](path/to/your/image.png)
+!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
 Budget – 477 records. 
-!["Image description"](path/to/your/image.png)
+!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
+Invoice – 500 records. 
+!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
 Orders – 500 records. 
-!["Image description"](path/to/your/image.png)
+!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
 Payment – 500 records. 
-!["Image description"](path/to/your/image.png)
-Orders – 500 records. 
-!["Image description"](path/to/your/image.png)
+!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
 
 
 
