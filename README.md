@@ -116,8 +116,8 @@ CREATE TABLE Payment (
    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 );
 ```
-
 ## Drop Tables:
+```sql
 DROP TABLE Payment;
 DROP TABLE Orders;
 DROP TABLE Invoice;
