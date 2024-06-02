@@ -1,8 +1,9 @@
+31/05/24
 •	Shay Mordechai			315689042
 
 •	Yair Miller			314695438
 
-                                                    School Management System
+                                                  School Management System
 
 ## Description:
 
@@ -148,67 +149,33 @@ CREATE TABLE Invoice (
   );
 
 ## ERD:
- ![Python Script](Stage.1/TABLES/GENERATE/Python_Script.png)
+ ![Entity-Relationship Diagram](Stage.1/ERD/ERD.png)
 
 
 ## DSD:
- !["Image description"](Stage.1/DSD/DSD.png)
+ !["Data Structure Diagram"](Stage.1/DSD/DSD.png)
 
 ## Data Generate – Three Ways:
 •	Generate Budget data with Python Script.
- !["Image description"](Stage.1/TABLES/GENERATE/Python_Script.png)
+ !["Image description"](Stage.1/TABLES/GENERATE/ERD.png)
  
-•	Generate Invoice data with Mockaroo’s website.
-!["Image description"](Stage.1/TABLES/GENERATE/Mockaroo_Generator.png)
+!["Generate Invoice data with Mockaroo’s website."](Stage.1/TABLES/GENERATE/DSD.png)
 
-•	Generate Payment data with Data Generator of PLSQL.
- !["Image description"](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
+ !["Generate Payment data with Data Generator of PLSQL."](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
  
 ## Six data imports with PLSQL:
 
-Employee – 500 records. 
-!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
-Budget – 477 records. 
-!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
-Invoice – 500 records. 
-!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
-Orders – 500 records. 
-!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
-Payment – 500 records. 
-!["Image description"](Stage.1/TABLES/IMPOTE/image.png)
+!["Employee – 500 records."](Stage.1/TABLES/IMPORT/Employee.png)
+ 
+!["Budget – 477 records."](Stage.1/TABLES/IMPORT/Budget.png)
+. 
+!["Supplier – 500 records."](Stage.1/TABLES/IMPORT/Budget.png)
+ 
+!["Invoice – 500 records."](Stage.1/TABLES/IMPORT/Invoice.png)
+ 
+!["Orders – 500 records."](Stage.1/TABLES/IMPORT/Orders.png)
 
-
-
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
+!["Payment – 500 records."](Stage.1/TABLES/IMPORT/Payment.png)
 
 ## New Section
 This is a new section added to the README file.
