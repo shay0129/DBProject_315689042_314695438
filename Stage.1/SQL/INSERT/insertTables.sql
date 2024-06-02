@@ -28,9 +28,32 @@ VALUES (3001, 'IntelliSupplies Shack', 'StudySmartStation@example.com', 62.85);
 INSERT INTO Supplier (Supplier_ID, Supplier_Name, Contact_Information, Inventory)
 VALUES (3002, 'Academic Essentials', 'SchoolSavvyStorefront@example.com', 97.51);
 
--- Orders Insert
-
 -- Invoice Insert
+INSERT INTO Invoice (Invoice_ID, Supplier_ID, Invoice_Cost, Invoice_Date)
+VALUES (5000, 3000, 1200.50, '2023-01-25');
 
---Payment Insert
+INSERT INTO Invoice (Invoice_ID, Supplier_ID, Invoice_Cost, Invoice_Date)
+VALUES (5001, 3001, 650.75, '2023-02-25');
 
+INSERT INTO Invoice (Invoice_ID, Supplier_ID, Invoice_Cost, Invoice_Date)
+VALUES (5002, 3002, 985.30, '2023-03-20');
+
+-- Orders Insert
+INSERT INTO Orders (Order_ID, Supplier_ID, Employee_ID, Invoice_ID, Quantity)
+VALUES (4000, 3000, 1500, 5000, 10);
+
+INSERT INTO Orders (Order_ID, Supplier_ID, Employee_ID, Invoice_ID, Quantity)
+VALUES (4001, 3001, 1501, 5001, 15);
+
+INSERT INTO Orders (Order_ID, Supplier_ID, Employee_ID, Invoice_ID, Quantity)
+VALUES (4002, 3002, 1502, 5002, 20);
+
+-- Payment Insert
+INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
+VALUES (6000, 1500, 1200.50, 'Salary', '2023-01-30');
+
+INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
+VALUES (6001, 1501, 650.75, 'Bonus', '2023-03-01');
+
+INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
+VALUES (6002, 1502, 985.30, 'Grant', '2023-03-25');

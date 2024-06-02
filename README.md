@@ -346,9 +346,3 @@ VALUES (6009, 1509, 650.00, 'Bonus', '05-08-2023');
 
 ## New Section
 This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
-
-## New Section
-This is a new section added to the README file.
