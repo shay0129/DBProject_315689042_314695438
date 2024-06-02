@@ -66,45 +66,45 @@ This database schema allows you to manage various aspects of a school's financia
 
 CREATE TABLE Employee (
 
-  Employee_ID NUMBER(4) PRIMARY KEY,
-  
-  Employee_Name VARCHAR(30),
-  
-  Seniority NUMBER(5),
-  
-  Contact_Information VARCHAR(50),
-  
-  Job_Title  VARCHAR(30) CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'))   
+    Employee_ID NUMBER(4) PRIMARY KEY,
+    
+    Employee_Name VARCHAR(30),
+    
+    Seniority NUMBER(5),
+    
+    Contact_Information VARCHAR(50),
+    
+    Job_Title  VARCHAR(30) CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'))   
   
 );
 
 
 CREATE TABLE Budget (
 
-  Budget_Code INT PRIMARY KEY,
-  
-  Employee_ID NUMBER(4), -- Each budget must be associated with an employee
-  
-  Expense_Category VARCHAR(50),
-  
-  Budget_Amount DECIMAL(10,2),
-  
-  Budget_Year NUMBER(4),
-  
-  FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
+    Budget_Code INT PRIMARY KEY,
+    
+    Employee_ID NUMBER(4), -- Each budget must be associated with an employee
+    
+    Expense_Category VARCHAR(50),
+    
+    Budget_Amount DECIMAL(10,2),
+    
+    Budget_Year NUMBER(4),
+    
+    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
   
 );
 
 
 CREATE TABLE Supplier (
 
-  Supplier_ID INT PRIMARY KEY,
-  
-  Supplier_Name VARCHAR(30),
-  
-  Contact_Information VARCHAR(50),
-  
-  Inventory DECIMAL(10,2)
+    Supplier_ID INT PRIMARY KEY,
+    
+    Supplier_Name VARCHAR(30),
+    
+    Contact_Information VARCHAR(50),
+    
+    Inventory DECIMAL(10,2)
 
 );
 
@@ -124,58 +124,61 @@ CREATE TABLE Invoice (
 
 CREATE TABLE Orders (
   
-  Order_ID INT PRIMARY KEY,
-  
-  Supplier_ID INT, -- Each order must be associated with a supplier
-  
-  Employee_ID INT, -- Each order must be associated with an employee
-  
-  Invoice_ID INT,
-  
-  Quantity INT,
-  
-  FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID),
-  
-  FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID),
-  
-  FOREIGN KEY (Invoice_ID) REFERENCES Invoice(Invoice_ID)
+    Order_ID INT PRIMARY KEY,
+    
+    Supplier_ID INT, -- Each order must be associated with a supplier
+    
+    Employee_ID INT, -- Each order must be associated with an employee
+    
+    Invoice_ID INT,
+    
+    Quantity INT,
+    
+    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID),
+    
+    FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID),
+    
+    FOREIGN KEY (Invoice_ID) REFERENCES Invoice(Invoice_ID)
   
 );
 
 CREATE TABLE Payment (
 
-  Payment_ID INT PRIMARY KEY,
-  
-  Employee_ID INT, -- Each payment must be associated with an employee
-  
-  Amount DECIMAL(10,2),
-  
-  Payment_Purpose VARCHAR(20) CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant')),
-  
-  Payment_Date DATE,
-  
-  FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
+    Payment_ID INT PRIMARY KEY,
+    
+    Employee_ID INT, -- Each payment must be associated with an employee
+    
+    Amount DECIMAL(10,2),
+    
+    Payment_Purpose VARCHAR(20) CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant')),
+    
+    Payment_Date DATE,
+    
+    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
   
 );
 
 ## Drop Tables:
 
-DROP TABLE Payment;
-
-DROP TABLE Orders;
-
-DROP TABLE Invoice;
-
-DROP TABLE Supplier;
-
-DROP TABLE Budget;
-
-DROP TABLE Employee;
+  DROP TABLE Payment;
+  
+  DROP TABLE Orders;
+  
+  DROP TABLE Invoice;
+  
+  DROP TABLE Supplier;
+  
+  DROP TABLE Budget;
+  
+  DROP TABLE Employee;
 
 
 ## Insert Tables:
 
--- Employee Insert
+___Employee Insert Statements___
+
+```sql
+--Employee Insert
 INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
 VALUES (1500, 'Brandon Peake', 17, '555-555-6139', 'Worker');
 
@@ -185,17 +188,30 @@ VALUES (1501, 'Nicholas Jones', NULL, 'NicholasJones@example.com', 'Procurement 
 INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
 VALUES (1502, 'Brandon Skinner', 13, '555-555-4690', 'Procurement Manager');
 
--- Budget Insert
-INSERT INTO Budget (Budget_Code, Employee_ID, Expense_Category, Budget_Amount, Budget_Year)
-VALUES (1, 1500, 'Rent or Lease Payments', 3086.49, 2014);
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1503, 'Sandra Stevens', 8, 'SandraStevens@example.com', 'Software Engineer');
 
-INSERT INTO Budget (Budget_Code, Employee_ID, Expense_Category, Budget_Amount, Budget_Year)
-VALUES (2, 1501, 'Special Education', 6240.90, 2023);
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1504, 'Diana Ray', 5, '555-555-9876', 'Human Resources Manager');
 
-INSERT INTO Budget (Budget_Code, Employee_ID, Expense_Category, Budget_Amount, Budget_Year)
-VALUES (3, 1502, 'Food Services', 6831.72, 2011);
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1505, 'Patrick Stone', 10, 'PatrickStone@example.com', 'Marketing Specialist');
 
--- Supplier Insert
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1506, 'Ashley Brown', 7, '555-555-7765', 'Finance Analyst');
+
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1507, 'Emily Davis', 12, 'EmilyDavis@example.com', 'Sales Executive');
+
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1508, 'Joshua Green', NULL, 'JoshuaGreen@example.com', 'IT Support');
+
+INSERT INTO Employee (Employee_ID, Employee_Name, Seniority, Contact_Information, Job_Title)
+VALUES (1509, 'Sophia Taylor', 3, '555-555-3344', 'Administrative Assistant');
+
+
+-- **Supplier Insert**
+```sql
 INSERT INTO Supplier (Supplier_ID, Supplier_Name, Contact_Information, Inventory)
 VALUES (3000, 'Scholarly Supplies Stop', 'CrayonsSolutions@example.com', 95.35);
 
@@ -205,7 +221,7 @@ VALUES (3001, 'IntelliSupplies Shack', 'StudySmartStation@example.com', 62.85);
 INSERT INTO Supplier (Supplier_ID, Supplier_Name, Contact_Information, Inventory)
 VALUES (3002, 'Academic Essentials', 'SchoolSavvyStorefront@example.com', 97.51);
 
--- Invoice Insert
+-- **Invoice Insert**
 INSERT INTO Invoice (Invoice_ID, Supplier_ID, Invoice_Cost, Invoice_Date)
 VALUES (5000, 3000, 1200.50, '2023-01-25');
 
@@ -215,7 +231,7 @@ VALUES (5001, 3001, 650.75, '2023-02-25');
 INSERT INTO Invoice (Invoice_ID, Supplier_ID, Invoice_Cost, Invoice_Date)
 VALUES (5002, 3002, 985.30, '2023-03-20');
 
--- Orders Insert
+-- **Orders Insert**
 INSERT INTO Orders (Order_ID, Supplier_ID, Employee_ID, Invoice_ID, Quantity)
 VALUES (4000, 3000, 1500, 5000, 10);
 
@@ -225,7 +241,7 @@ VALUES (4001, 3001, 1501, 5001, 15);
 INSERT INTO Orders (Order_ID, Supplier_ID, Employee_ID, Invoice_ID, Quantity)
 VALUES (4002, 3002, 1502, 5002, 20);
 
--- Payment Insert
+-- **Payment Insert**
 INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
 VALUES (6000, 1500, 1200.50, 'Salary', '2023-01-30');
 
