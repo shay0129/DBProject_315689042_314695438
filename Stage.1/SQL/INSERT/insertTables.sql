@@ -181,4 +181,8 @@ INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_D
 VALUES (6008, 1508, 300.00, 'Bonus', '01-07-2023');
 
 INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
+<<<<<<< HEAD
 VALUES (6009, 1509, 650.00, 'Bonus', '05-08-2023');
+=======
+VALUES (6009, 1509, 650.00, 'Bonus', '05-08-2023');
+>>>>>>> deb4ed479a57cc3727b776a82baa30968ec8969a
