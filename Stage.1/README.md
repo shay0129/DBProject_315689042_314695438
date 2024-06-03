@@ -134,15 +134,15 @@ CREATE TABLE Payment (
 
 !["Employee Table"](Stage.1\SQL\DESC\Employee.png)
 
-!["Image description"](Stage.1\SQL\DESC\Budget.png)
+!["Budget Table"](Stage.1\SQL\DESC\Budget.png)
 
-!["Image description"](Stage.1\SQL\DESC\Supplier.png)
+!["Supplier Table"](Stage.1\SQL\DESC\Supplier.png)
 
-!["Image description"](Stage.1\SQL\DESC\Invoice.png)
+!["Invoice Table"](Stage.1\SQL\DESC\Invoice.png)
 
-!["Image description"](Stage.1\SQL\DESC\Orders.png)
+!["Orders Table"](Stage.1\SQL\DESC\Orders.png)
 
-!["Image description"](Stage.1\SQL\DESC\Payment.png)
+!["Payment Table"](Stage.1\SQL\DESC\Payment.png)
 
 ## Data Generate – Three Ways:
 
@@ -150,7 +150,7 @@ CREATE TABLE Payment (
  
 !["Mockaroo’s website"](Stage.1/TABLES/GENERATE/DSD.png)
 
- !["PLSQL's Data Generator"](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
+ !["PLSQL's Data-Generator"](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
  
 ## Text Importer - PLSQL:
 
