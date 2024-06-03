@@ -1,4 +1,4 @@
-2/6/24
+3/6/24
 
 •	Shay Mordechai			315689042
 
@@ -132,7 +132,7 @@ CREATE TABLE Payment (
 ```
 ## Desc. commands:
 
-!["Image description"](Stage.1\SQL\DESC\Employee.png)
+!["Employee Table"](Stage.1\SQL\DESC\Employee.png)
 
 !["Image description"](Stage.1\SQL\DESC\Budget.png)
 
@@ -156,15 +156,19 @@ CREATE TABLE Payment (
 
 !["Employee – 500 records."](Stage.1/TABLES/IMPORT/Employee.png)
  
-!["Budget – 477 records."](Stage.1/TABLES/IMPORT/Budget.png)
+!["Budget – 482 records."](Stage.1/TABLES/IMPORT/Budget.png)
 . 
 !["Supplier – 500 records."](Stage.1/TABLES/IMPORT/Budget.png)
  
 !["Invoice – 500 records."](Stage.1/TABLES/IMPORT/Invoice.png)
  
-!["Orders – 500 records."](Stage.1/TABLES/IMPORT/Orders.png)
+!["Orders – 497 records."](Stage.1/TABLES/IMPORT/Orders.png)
 
-!["Payment – 500 records."](Stage.1/TABLES/IMPORT/Payment.png)
+!["Payment – 499 records."](Stage.1/TABLES/IMPORT/Payment.png)
 
-## New Section
-This is a new section added to the README file.
+## Backup & Recovery
+
+!["Backup screenshot"](Stage.1\Backup\backup.png)
+
+!["Backup screenshot"](Stage.1\Backup\recovery.png)
+
