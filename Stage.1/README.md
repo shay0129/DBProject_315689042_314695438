@@ -27,17 +27,17 @@ Data Entities:
 
 **Relationships:**
 
-• An _Employee_ may be associated with multiple _Budgets_ (via Employee_ID in Budget).
+• An ***Employee*** may be associated with multiple ***Budgets*** (via Employee_ID in Budget).
 
-• An _Employee_ can initiate multiple Orders and receive multiple _Payments_ (via Employee_ID in Orders and Payment).
+• An ***Employee*** can initiate multiple Orders and receive multiple ***Payments*** (via Employee_ID in Orders and Payment).
 
-• A _Supplier_ can have multiple _Orders_ placed with them (via Supplier_ID in Orders).
+• A ***Supplier*** can have multiple ***Orders*** placed with them (via Supplier_ID in Orders).
 
-• Each _Order_ is tied to a single Supplier and a single _Invoice_ (via Supplier_ID and Order_ID in foreign keys).
+• Each ***Order*** is tied to a single Supplier and a single ***Invoice*** (via Supplier_ID and Order_ID in foreign keys).
 
-• Each _Invoice_ is linked to a single _Order_ (via Order_ID in foreign key).
+• Each ***Invoice*** is linked to a single ***Order*** (via Order_ID in foreign key).
 
-• Each _Supplier_ must have exactly one Invoice associated with them, and each Invoice must be associated with exactly one _Supplier_.
+• Each ***Supplier*** must have exactly one Invoice associated with them, and each Invoice must be associated with exactly one ***Supplier***.
 
 **Functionality:**
 
