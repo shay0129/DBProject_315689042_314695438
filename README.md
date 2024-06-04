@@ -12,17 +12,17 @@ This system is designed to manage a school's administrative operations, includin
 
 Data Entities:
 
-•	__Employee__ ( ***Employee_ID***,Employee_Name, Seniority, Contact_Information )
+•	__Employee__ (***Employee_ID***,Employee_Name, Seniority, Contact_Information, Job_Title)
 
-•	__Budget__ ( ***Budget_Code***, _Employee_ID_, Expense_Category, Budget_Amount, Budget_Year)
+•	__Budget__ (***Budget_Code***, _Employee_ID_, Expense_Category, Budget_Amount, Budget_Year)
 
-•	__Supplier__ ( ***Supplier_ID***, Supplier_Name, Contact_Information, Inventory )
+•	__Supplier__ (***Supplier_ID***, Supplier_Name, Contact_Information, Inventory)
 
-•	__Invoice__ ( ***Invoice_ID***, _Supplier_ID_, Invoice_Cost, Invoice_Date )
+•	__Invoice__ (***Invoice_ID***, _Supplier_ID_, Invoice_Cost, Invoice_Date)
 
-•	__Orders__ ( ***Order_ID***, _Supplier_ID_, _Employee_ID_, Quantity )
+•	__Orders__ (***Order_ID***, _Supplier_ID_, _Employee_ID_, Invoice_ID, Quantity)
 
-•	__Payment__ ( ***Payment_ID***, _Employee_ID_, Amount, Payment_Purpose, Payment_Date )
+•	__Payment__ (***Payment_ID***, _Employee_ID_, Amount, Payment_Purpose, Payment_Date)
 
 
 **Relationships:**
