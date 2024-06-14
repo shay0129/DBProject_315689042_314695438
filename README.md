@@ -172,3 +172,5 @@ CREATE TABLE Payment (
 
 !["Backup screenshot"](Stage.1\Backup\recovery.png)
 
+## Queries
+The employee with the highest total salary including bonuses.
