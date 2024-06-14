@@ -178,8 +178,20 @@ The employee with the highest total salary including bonuses.
 ![‏‏צילום מסך (5)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/3f33a9b6-8356-4f51-913f-9864e0d2d3c5)
 
 
+
+
 The employee with the largest number of orders.
+
 ![‏‏צילום מסך (6)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/16a2bf44-37df-4695-823d-99680ce682c0)
+
+
+
+
+Employee and supplier are linked to each other and both have email.
+
+![‏‏צילום מסך (7)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/ed83b183-06dc-4ce5-90aa-21cd260b214d)
+
+
 
 
 
