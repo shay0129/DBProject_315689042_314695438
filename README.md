@@ -306,8 +306,5 @@ All employees whose bonus price they received in a certain year is greater than 
 
 ![‏‏צילום מסך (14)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/787d3603-8cde-4bfe-a6a7-8531ccbfdf1c)
 
-
-
-
-
-
+## Constraint
+first:
