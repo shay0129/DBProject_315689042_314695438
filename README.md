@@ -274,8 +274,37 @@ after
 
 ## ParamsQueries
 
+All suppliers and the identification number of the orders they provided, the user should enter the order quantity date and stock of the order at the supplier.
+
+![‏‏צילום מסך (10)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/b2c1011f-05c3-4b4f-bbd8-d481b741e689)
 
 
+
+
+All employees who ordered from a certain supplier, the user must enter the name of the supplier and data about the employee.
+
+![‏‏צילום מסך (11)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/c2066cc0-c288-4a3b-8d1d-0cf8f6dc34ce)
+
+
+
+
+A vendor with invoice prices for orders it has supplied, the user must enter date and order details.
+
+![‏‏צילום מסך (12)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/604b5931-f4a9-4c9d-a755-168974cb2f9f)
+
+
+
+
+Employees who exceeded the annual budget in the last year by a certain percentage.
+
+![‏‏צילום מסך (13)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/f929fcb3-61e6-424c-ad06-a8f11cbab428)
+
+
+
+
+All employees whose bonus price they received in a certain year is greater than the average of the bonuses received in that year.
+
+![‏‏צילום מסך (14)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/787d3603-8cde-4bfe-a6a7-8531ccbfdf1c)
 
 
 
