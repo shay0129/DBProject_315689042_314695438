@@ -347,25 +347,30 @@ ORDER BY Total_Bonus DESC;
 
 1. **Constraint for Employee table**
 ```sql
+-- Constraint for Employee table
 ALTER TABLE Employee
 ADD CONSTRAINT Job_Title
 CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'));
 ```
 **prove:**
-
+![first prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/first_prove.png)
 
 2. **Constraint for Orders table**
 ```sql
+-- Constraint for Orders table
 ALTER TABLE Orders
-ALTER COLUMN Invoice_ID NOT NULL; -- Ensuring Invoice_ID is mandatory
+MODIFY Quantity DEFAULT 1;
 ```
 **prove:**
+![second prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/second_prove.png)
 
 3. **Constraint for Payment table**
 ```sql
+-- Constraint for Payment table
 ALTER TABLE Payment
 ADD CONSTRAINT Payment_Purpose
 CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant'));
 ```
 **prove:**
+![third prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/third_prove.png)
 
