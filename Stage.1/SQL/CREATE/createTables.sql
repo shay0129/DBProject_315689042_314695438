@@ -3,7 +3,7 @@ CREATE TABLE Employee (
    Employee_Name VARCHAR(30),
    Seniority NUMBER(5),
    Contact_Information VARCHAR(50),
-   Job_Title  VARCHAR(30) CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'))
+   Job_Title  VARCHAR(30)
 );
 
 CREATE TABLE Budget (
@@ -34,7 +34,7 @@ CREATE TABLE Orders (
    Order_ID INT PRIMARY KEY,
    Supplier_ID INT, -- Each order must be associated with a supplier
    Employee_ID INT, -- Each order must be associated with an employee
-   Invoice_ID INT NOT NULL, -- Ensuring Invoice_ID is mandatory
+   Invoice_ID INT NOT NULL; -- Ensuring Invoice_ID is mandatory
    Quantity INT,
    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID),
    FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID),
@@ -45,7 +45,7 @@ CREATE TABLE Payment (
    Payment_ID INT PRIMARY KEY,
    Employee_ID INT, -- Each payment must be associated with an employee
    Amount DECIMAL(10,2),
-   Payment_Purpose VARCHAR(20) CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant')),
+   Payment_Purpose VARCHAR(20),
    Payment_Date DATE,
    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 );

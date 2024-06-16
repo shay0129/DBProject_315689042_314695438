@@ -6,6 +6,8 @@
 
                                                   School Management System
 
+Stage 1:
+
 ## Description:
 
 This system is designed to manage a school's administrative operations, including employee information, budgeting, procurement, and financial transactions.
@@ -56,7 +58,7 @@ This database schema allows you to manage various aspects of a school's financia
 • Record payments made to employees for salaries, bonuses, or grants, enabling efficient payroll processing and financial reporting.
 
 ## ERD:
- ![Entity-Relationship Diagram](Stage.1/ERD/ERD.png)
+ ![Entity-Relationship Diagram](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/ERD/ERD.png)
 
 The ERD was chosen to accurately represent the key components and relationships involved in the procurement process, employee payroll process, and budget management process.
 
@@ -74,7 +76,7 @@ Budgets, Employees.
 
 
 ## DSD:
- !["Data Structure Diagram"](Stage.1/DSD/DSD.png)
+ !["Data Structure Diagram"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DSD/DSD.png)
 
 ## Create Tables:
 ```sql
@@ -132,43 +134,42 @@ CREATE TABLE Payment (
 ```
 ## Desc. commands:
 
-!["Employee Table"](Stage.1\SQL\DESC\Employee.png)
+!["Employee Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Employee.png)
 
-!["Budget Table"](Stage.1\SQL\DESC\Budget.png)
+!["Budget Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Budget.png)
 
-!["Supplier Table"](Stage.1\SQL\DESC\Supplier.png)
+!["Supplier Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Supplier.png)
 
-!["Invoice Table"](Stage.1\SQL\DESC\Invoice.png)
+!["Invoice Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Invoice.png)
 
-!["Orders Table"](Stage.1\SQL\DESC\Orders.png)
+!["Orders Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Orders.png)
 
-!["Payment Table"](Stage.1\SQL\DESC\Payment.png)
+!["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Payment.png)
 
 ## Data Generate – Three Ways:
 
- !["Python Script"](Stage.1/TABLES/GENERATE/ERD.png)
+ !["Python Script"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Python_Script.png)
  
-!["Mockaroo’s website"](Stage.1/TABLES/GENERATE/DSD.png)
+!["Mockaroo’s website"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Mockaroo_Generator.png)
 
- !["PLSQL's Data-Generator"](Stage.1/TABLES/GENERATE/PLSQL_Data_Generator.png)
+ !["PLSQL's Data-Generator"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/PLSQL_Data_Generator.png)
  
 ## Text Importer - PLSQL:
 
-!["Employee – 500 records."](Stage.1/TABLES/IMPORT/Employee.png)
+!["Employee – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Employee.png)
  
-!["Budget – 482 records."](Stage.1/TABLES/IMPORT/Budget.png)
+!["Budget – 482 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Budget.png)
 . 
-!["Supplier – 500 records."](Stage.1/TABLES/IMPORT/Budget.png)
+!["Supplier – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/PLSQL_Data_Generator.png)
  
-!["Invoice – 500 records."](Stage.1/TABLES/IMPORT/Invoice.png)
+!["Invoice – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Invoice.png)
  
-!["Orders – 497 records."](Stage.1/TABLES/IMPORT/Orders.png)
+!["Orders – 497 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Orders.png)
 
-!["Payment – 499 records."](Stage.1/TABLES/IMPORT/Payment.png)
+!["Payment – 499 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Payment.png)
 
 ## Backup & Recovery
 
-!["Backup screenshot"](Stage.1\Backup\backup.png)
+!["Backup screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/backup.png)
 
-!["Backup screenshot"](Stage.1\Backup\recovery.png)
-
+!["Backup screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/recovery.png)
