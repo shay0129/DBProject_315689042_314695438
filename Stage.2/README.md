@@ -356,4 +356,8 @@ CHECK Invoice_Cost > 0 and Invoice_Cost < 10000;
 -- Constraint for Orders table
 ALTER TABLE Orders
 MODIFY Quantity DEFAULT 1;
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 20e51b3b00e548ea2830de1c92a83669b9ce7640
