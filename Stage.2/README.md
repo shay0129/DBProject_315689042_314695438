@@ -10,44 +10,36 @@ Stage 2:
 
 ## Queries
 
-Without Paramerets:
+**Select without parameters**
 
-The employee with the highest total salary including bonuses.
+1. The employee with the highest total salary including bonuses.
 
 ![‏‏צילום מסך (5)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/3f33a9b6-8356-4f51-913f-9864e0d2d3c5)
 
 
-
-
-The employee with the largest number of orders.
+2. The employee with the largest number of orders.
 
 ![‏‏צילום מסך (6)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/16a2bf44-37df-4695-823d-99680ce682c0)
 
 
-
-
-Employee and supplier are linked to each other and both have email.
+3. Employee and supplier are linked to each other and both have email.
 
 ![‏‏צילום מסך (7)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/ed83b183-06dc-4ce5-90aa-21cd260b214d)
 
 
-
-
-Employees who exceeded the annual budget in the last year by a certain percentage.
+4. Employees who exceeded the annual budget in the last year by a certain percentage.
 
 ![‏‏צילום מסך (8)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/ab36befe-1dcd-47e5-aebd-5246a337ab2d)
 
 
-
-
-Some workers their salary is less than the average.
+5. Some workers their salary is less than the average.
 
 ![‏‏צילום מסך (9)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/3eb55b5b-ddef-430e-b116-f66732fe71b3)
 
 
+**Update without parameters**
 
-
-Increases an employee's inventory under certain conditions.
+1. Increases an employee's inventory under certain conditions.
 
 ![‏‏צילום מסך (25)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/6fa335ce-ffce-47d5-824e-23fb06600c26)
 
@@ -62,7 +54,7 @@ after
 
 
 
-Updates a job name for an employee under certain conditions.
+2. Updates a job name for an employee under certain conditions.
 
 ![‏‏צילום מסך (24)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/10dadae9-4441-41de-9c41-7246af82afa9)
 
@@ -74,10 +66,11 @@ after
 
 ![‏‏צילום מסך (19)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/45391057-01b1-4bbe-b277-d6a68da7d027)
 
+**Delete without parameters**
 
 
 
-Deletes purchasing managers under certain conditions if they have not made any orders at all.
+1. Deletes purchasing managers under certain conditions if they have not made any orders at all.
 
 ![‏‏צילום מסך (26)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/8026fe81-6b81-46a2-87c0-293ac9530a9b)
 
@@ -90,12 +83,7 @@ after
 ![‏‏צילום מסך (27)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/af63aad5-106d-4273-aad6-f21b44e5f28f)
 
 
-
-
-Deletes all suppliers who have not issued an invoice over 5 in the last 20 years.
-
-
-
+2. Deletes all suppliers who have not issued an invoice over 5 in the last 20 years.
 
 
 ![‏‏צילום מסך (29)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/14855565-fcfc-49d2-a7ff-8918456b8190)
@@ -106,43 +94,41 @@ before
 
 after
 
-
-
+...
 
 
 ## ParamsQueries
 
-All suppliers and the identification number of the orders they provided, the user should enter the order quantity date and stock of the order at the supplier.
+1. All suppliers and the identification number of the orders they provided, the user should enter the order quantity date and stock of the order at the supplier.
 
 ![‏‏צילום מסך (10)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/b2c1011f-05c3-4b4f-bbd8-d481b741e689)
 
 
-
-
-All employees who ordered from a certain supplier, the user must enter the name of the supplier and data about the employee.
+2. All employees who ordered from a certain supplier, the user must enter the name of the supplier and data about the employee.
 
 ![‏‏צילום מסך (11)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/c2066cc0-c288-4a3b-8d1d-0cf8f6dc34ce)
 
 
-
-
-A vendor with invoice prices for orders it has supplied, the user must enter date and order details.
+3. A vendor with invoice prices for orders it has supplied, the user must enter date and order details.
 
 ![‏‏צילום מסך (12)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/604b5931-f4a9-4c9d-a755-168974cb2f9f)
 
 
-
-
-Employees who exceeded the annual budget in the last year by a certain percentage.
+4. Employees who exceeded the annual budget in the last year by a certain percentage.
 
 ![‏‏צילום מסך (13)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/f929fcb3-61e6-424c-ad06-a8f11cbab428)
 
 
-
-
-All employees whose bonus price they received in a certain year is greater than the average of the bonuses received in that year.
+5. All employees whose bonus price they received in a certain year is greater than the average of the bonuses received in that year.
 
 ![‏‏צילום מסך (14)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/787d3603-8cde-4bfe-a6a7-8531ccbfdf1c)
 
 ## Constraint
-first:
+
+1. bla bla...
+
+2. bla bla...
+
+3. bla bla...
+
+4. bla bla...
