@@ -14,6 +14,7 @@ Stage 2:
 
 1. The employee with the highest total salary including bonuses.
 ```sql
+-- Query 1: Find the employee who has received the highest total payment in the current year.
 SELECT e.Employee_ID, Total_Payment
 FROM (
     SELECT p.Employee_ID, SUM(p.Amount) AS Total_Payment
@@ -29,11 +30,11 @@ WHERE pay.Total_Payment = (
     GROUP BY p.Employee_ID
 );
 ```
-![Stage.2\Queries\ScreenShots\first_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/first_query.png)
+![first query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/first_query.png)
 
 2. The employee with the largest number of orders.
-
 ```sql
+-- Query 2: Find the employee who has the most orders. Return the employee ID, employee name, and the number of orders. If there are multiple employees with the same number of orders, return all of them.
 SELECT Employee_ID, Employee_Name, Order_Count
 FROM (
     SELECT e.Employee_ID, e.Employee_Name, COUNT(o.Order_ID) AS Order_Count
@@ -50,11 +51,11 @@ WHERE Order_Count = (
     ) max_order
 );
 ```
-![Stage.2\Queries\ScreenShots\second_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/second_query.png)
+![second query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/second_query.png)
 
 3. Employee and supplier are linked to each other and both have email.
-
 ```sql
+-- Query 3: Get the email addresses of the employees and suppliers involved in orders where both the employee and supplier have an email address. The result should include the order ID, employee email, and supplier email.
 SELECT o.Order_ID,
        (SELECT e.Contact_Information FROM Employee e WHERE e.Employee_ID = o.Employee_ID)
         AS Employee_Email,
@@ -72,11 +73,12 @@ AND EXISTS (
     AND s.Contact_Information LIKE '%@%'
 );
 ```
-![Stage.2\Queries\ScreenShots\third_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/third_query.png)
+![third query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/third_query.png)
 
 4. Employees who exceeded the annual budget in the last year by a certain percentage.
 
 ```sql
+-- Query 4: List the employees who have generated revenue greater than 0.5% of the budget for the previous year.
 SELECT e.Employee_ID, e.Employee_Name
 FROM Employee e
 WHERE EXISTS (
@@ -91,9 +93,11 @@ WHERE EXISTS (
         WHERE  Budget_Year = EXTRACT(YEAR FROM SYSDATE) - 1
     )
 );
-![Stage.2\Queries\ScreenShots\four_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/four_query.png)```
+```
+![four query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/four_query.png)
 5. Some workers their salary is less than the average.
 ```sql
+-- Query 5: Find the number of employees whose total salary is less than the average salary of all employees.
 SELECT  COUNT(*)
      FROM (
          SELECT p.Employee_ID, SUM(p.Amount) AS Total_Salary
@@ -113,13 +117,14 @@ SELECT  COUNT(*)
          ) ts2
     );
 ```
-![Stage.2\Queries\ScreenShots\five_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/five_query.png)
+![five query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/five_query.png)
 
 **Update without parameters**
 
-1. Updates a job name for an employee under certain conditions.
+6. Updates a job name for an employee under certain conditions.
 
 ```sql
+-- Query 6: Update the job title of employees with a seniority of less than 5 years to 'Worker' if they have received less than 4500 in payments in the current year. Also, list the employees with a seniority of less than 5 years and a job title of 'Budget Committee' or 'Procurement Manager' who have received less than 4500 in payments in the current year.
 UPDATE Employee
 SET Job_Title = 'Worker'
 WHERE Seniority < 5
@@ -152,8 +157,9 @@ after
 
 ![‏‏צילום מסך (19)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/45391057-01b1-4bbe-b277-d6a68da7d027)
 
-2. Increases an Supplier's inventory under certain conditions.
+7. Increases an Supplier's inventory under certain conditions.
 ```sql
+-- Query 7: Update the inventory of suppliers by 10% if the supplier has more than 35 orders and the difference between the inventory and the total quantity of orders is less than 20. Return the updated inventory of the suppliers.
 UPDATE Supplier
 SET Inventory = Inventory * 1.10
 WHERE Supplier_ID IN (
@@ -187,8 +193,9 @@ after
 
 **Delete without parameters**
 
-1. Deletes purchasing managers under certain conditions if they have not made any orders at all.
+8. Deletes purchasing managers under certain conditions if they have not made any orders at all.
 ```sql
+-- Query 8: Delete all Procurement Managers with seniority greater than 8 years who have not made any payments or received any orders.
 DELETE FROM Employee
 WHERE Employee_ID IN (
     SELECT e.Employee_ID
@@ -221,8 +228,9 @@ after
 ![‏‏צילום מסך (27)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/af63aad5-106d-4273-aad6-f21b44e5f28f)
 
 
-2. Deletes all suppliers who have not issued an invoice over 5 in the last 20 years.
+9. Deletes all suppliers who have not issued an invoice over 5 in the last 20 years.
 ```sql
+-- Query 9: Delete all suppliers that have not supplied any orders with an invoice cost greater than $5.00 in the last 20 years.
 DELETE FROM Supplier
 WHERE Supplier_ID NOT IN (
     SELECT DISTINCT s.Supplier_ID
@@ -268,7 +276,7 @@ WHERE i.Invoice_Date BETWEEN TO_DATE (&from, 'DD-MM-YYYY') AND TO_DATE (&to, 'DD
  AND s.inventory > &inventoryMin
 ORDER BY i.Invoice_Date;
 ```
-![first ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/first_ParamsQuery.png)
+![first ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/ParamsQueries/first_ParamsQuery.png)
 
 2. All employees who ordered from a certain supplier, the user must enter the name of the supplier and data about the employee.
 ```sql
@@ -282,7 +290,7 @@ WHERE e.job_title =  &< name = "title" list =  "Budget Committee, Procurement Ma
  AND s.supplier_name = &< name = �supplierName� list = "SELECT DISTINCT Supplier_Name FROM Supplier" type = "string" >
 ORDER BY e.Employee_ID;
 ```
-![second ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/second_ParamsQuery.png)
+![second ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/ParamsQueries/second_ParamsQuery.png)
 
 3. A vendor with invoice prices for orders it has supplied, the user must enter date and order details.
 ```sql
@@ -294,7 +302,7 @@ WHERE i.Invoice_Date BETWEEN TO_DATE (&from, 'DD-MM-YYYY') AND TO_DATE (&to, 'DD
  AND i.invoice_cost = &< name = "cost" list = "SELECT DISTINCT Invoice_Cost FROM Invoice" >
 ORDER BY i.Invoice_Cost DESC;
 ```
-![third ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/third_ParamsQuery.png)
+![third ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/ParamsQueries/third_ParamsQuery.png)
 
 4. Employees who exceeded the annual budget in the last year by a certain percentage.
 ```sql
@@ -314,7 +322,7 @@ WHERE EXISTS (
     )
 );
 ```
-![four ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/four_ParamsQuery.png)
+![four ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/ParamsQueries/four_ParamsQuery.png)
 
 5. All employees whose bonus price they received in a certain year is greater than the average of the bonuses received in that year.
 ```sql
@@ -333,7 +341,7 @@ HAVING SUM(p.Amount) > (
 )
 ORDER BY Total_Bonus DESC;
 ```
-![Stage.2\ParamsQueries\ScreenShots\five_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/first_ParamsQuery.png)
+![five ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/ParamsQueries/five_ParamsQuery.png)
 
 ## Constraint
 
