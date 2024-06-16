@@ -29,7 +29,7 @@ WHERE pay.Total_Payment = (
     GROUP BY p.Employee_ID
 );
 ```
-Stage.2\Queries\ScreenShots\first_query.png
+![Stage.2\Queries\ScreenShots\first_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/first_query.png)
 
 2. The employee with the largest number of orders.
 
@@ -50,7 +50,7 @@ WHERE Order_Count = (
     ) max_order
 );
 ```
-Stage.2\Queries\ScreenShots\second_query.png
+![Stage.2\Queries\ScreenShots\second_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/second_query.png)
 
 3. Employee and supplier are linked to each other and both have email.
 
@@ -72,7 +72,7 @@ AND EXISTS (
     AND s.Contact_Information LIKE '%@%'
 );
 ```
-Stage.2\Queries\ScreenShots\third_query.png
+![Stage.2\Queries\ScreenShots\third_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/third_query.png)
 
 4. Employees who exceeded the annual budget in the last year by a certain percentage.
 
@@ -91,8 +91,7 @@ WHERE EXISTS (
         WHERE  Budget_Year = EXTRACT(YEAR FROM SYSDATE) - 1
     )
 );
-Stage.2\Queries\ScreenShots\four_query.png
-```
+![Stage.2\Queries\ScreenShots\four_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/four_query.png)```
 5. Some workers their salary is less than the average.
 ```sql
 SELECT  COUNT(*)
@@ -114,7 +113,7 @@ SELECT  COUNT(*)
          ) ts2
     );
 ```
-Stage.2\Queries\ScreenShots\five_query.png
+![Stage.2\Queries\ScreenShots\five_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/five_query.png)
 
 **Update without parameters**
 
@@ -258,6 +257,7 @@ after
 
 1. All suppliers and the identification number of the orders they provided, the user should enter the order quantity date and stock of the order at the supplier.
 ```sql
+-- Query 1: Find all orders that were made between two dates, with a quantity greater than a given value, and a supplier with an inventory greater than a given value. Return the supplier ID, supplier name, and order ID. Order the results by the invoice date.
 SELECT s.Supplier_ID, s.Supplier_Name, o.Order_ID
 FROM Orders o
 JOIN Supplier s ON o.Supplier_ID = s.Supplier_ID
@@ -268,10 +268,11 @@ WHERE i.Invoice_Date BETWEEN TO_DATE (&from, 'DD-MM-YYYY') AND TO_DATE (&to, 'DD
  AND s.inventory > &inventoryMin
 ORDER BY i.Invoice_Date;
 ```
-Stage.2\ParamsQueries\ScreenShots\first_ParamsQuery.png
+![first ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/first_ParamsQuery.png)
 
 2. All employees who ordered from a certain supplier, the user must enter the name of the supplier and data about the employee.
 ```sql
+-- Query 2: Find the employee who has the most orders. Return the employee ID, employee name, and the number of orders. If there are multiple employees with the same number of orders, return all of them.
 SELECT e.Employee_ID, e.Employee_Name
 FROM Orders o
 JOIN Supplier s ON o.Supplier_ID = s.Supplier_ID
@@ -281,10 +282,11 @@ WHERE e.job_title =  &< name = "title" list =  "Budget Committee, Procurement Ma
  AND s.supplier_name = &< name = �supplierName� list = "SELECT DISTINCT Supplier_Name FROM Supplier" type = "string" >
 ORDER BY e.Employee_ID;
 ```
-Stage.2\ParamsQueries\ScreenShots\second_ParamsQuery.png
+![second ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/second_ParamsQuery.png)
 
 3. A vendor with invoice prices for orders it has supplied, the user must enter date and order details.
 ```sql
+-- Query 3: Display the supplier ID, supplier name, and invoice cost for all invoices between two dates, where the invoice cost is equal to a user-defined value. Order the results by invoice cost in descending order.
 SELECT s.supplier_id, s.Supplier_Name, i.Invoice_Cost
 FROM Invoice i
 JOIN Supplier s ON i.Supplier_ID = s.Supplier_ID
@@ -292,10 +294,11 @@ WHERE i.Invoice_Date BETWEEN TO_DATE (&from, 'DD-MM-YYYY') AND TO_DATE (&to, 'DD
  AND i.invoice_cost = &< name = "cost" list = "SELECT DISTINCT Invoice_Cost FROM Invoice" >
 ORDER BY i.Invoice_Cost DESC;
 ```
-Stage.2\ParamsQueries\ScreenShots\third_ParamsQuery.png
+![third ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/third_ParamsQuery.png)
 
 4. Employees who exceeded the annual budget in the last year by a certain percentage.
 ```sql
+-- Query 4: Find the employees who have generated more than a certain percentage of the budget in the previous year. The percentage is a parameter that the user can input
 SELECT e.Employee_ID, e.Employee_Name
 FROM Employee e
 WHERE EXISTS (
@@ -311,10 +314,11 @@ WHERE EXISTS (
     )
 );
 ```
-Stage.2\ParamsQueries\ScreenShots\four_ParamsQuery.png
+![four ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/four_ParamsQuery.png)
 
 5. All employees whose bonus price they received in a certain year is greater than the average of the bonuses received in that year.
 ```sql
+-- Query 5: Find all employees who have received a bonus between two dates, where the total bonus received is greater than the average bonus received between those dates. Return the employee ID, employee name, and total bonus received. Order the results by the total bonus received in descending order.
 SELECT e.Employee_ID, e.Employee_Name, SUM(p.Amount) AS Total_Bonus
 FROM Employee e
 JOIN Payment p ON e.Employee_ID = p.Employee_ID
@@ -329,35 +333,31 @@ HAVING SUM(p.Amount) > (
 )
 ORDER BY Total_Bonus DESC;
 ```
-Stage.2\ParamsQueries\ScreenShots\five_ParamsQuery.png
+![Stage.2\ParamsQueries\ScreenShots\five_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/first_ParamsQuery.png)
 
 ## Constraint
 
-1. CHECK - 
+1. **Constraint for Employee table**
 ```sql
--- Constraint for Employee table
 ALTER TABLE Employee
-MODIFY Seniority DEFAULT 0;
+ADD CONSTRAINT Job_Title
+CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'));
 ```
+**prove:**
 
-checks:
 
-
-2. NOT NULL - 
+2. **Constraint for Orders table**
 ```sql
--- Constraint for Invoice table
-ALTER TABLE Invoice
-ADD CONSTRAINT Invoice_Cost
-CHECK Invoice_Cost > 0 and Invoice_Cost < 10000;
-```
-
-3. CHECK - 
-```sql
--- Constraint for Orders table
 ALTER TABLE Orders
-MODIFY Quantity DEFAULT 1;
-<<<<<<< HEAD
+ALTER COLUMN Invoice_ID NOT NULL; -- Ensuring Invoice_ID is mandatory
 ```
-=======
+**prove:**
+
+3. **Constraint for Payment table**
+```sql
+ALTER TABLE Payment
+ADD CONSTRAINT Payment_Purpose
+CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant'));
 ```
->>>>>>> 20e51b3b00e548ea2830de1c92a83669b9ce7640
+**prove:**
+

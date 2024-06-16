@@ -174,6 +174,8 @@ CREATE TABLE Payment (
 !["Backup screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/recovery.png)
 
 
+16/6/24
+
 Stage 2:
 
 ## Queries
@@ -197,7 +199,7 @@ WHERE pay.Total_Payment = (
     GROUP BY p.Employee_ID
 );
 ```
-Stage.2\Queries\ScreenShots\first_query.png
+![Stage.2\Queries\ScreenShots\first_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/first_query.png)
 
 2. The employee with the largest number of orders.
 
@@ -218,7 +220,7 @@ WHERE Order_Count = (
     ) max_order
 );
 ```
-Stage.2\Queries\ScreenShots\second_query.png
+![Stage.2\Queries\ScreenShots\second_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/second_query.png)
 
 3. Employee and supplier are linked to each other and both have email.
 
@@ -240,7 +242,7 @@ AND EXISTS (
     AND s.Contact_Information LIKE '%@%'
 );
 ```
-Stage.2\Queries\ScreenShots\third_query.png
+![Stage.2\Queries\ScreenShots\third_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/third_query.png)
 
 4. Employees who exceeded the annual budget in the last year by a certain percentage.
 
@@ -259,8 +261,7 @@ WHERE EXISTS (
         WHERE  Budget_Year = EXTRACT(YEAR FROM SYSDATE) - 1
     )
 );
-Stage.2\Queries\ScreenShots\four_query.png
-```
+![Stage.2\Queries\ScreenShots\four_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/four_query.png)```
 5. Some workers their salary is less than the average.
 ```sql
 SELECT  COUNT(*)
@@ -282,7 +283,7 @@ SELECT  COUNT(*)
          ) ts2
     );
 ```
-Stage.2\Queries\ScreenShots\five_query.png
+![Stage.2\Queries\ScreenShots\five_query.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/Queries/ScreenShots/five_query.png)
 
 **Update without parameters**
 
@@ -436,7 +437,7 @@ WHERE i.Invoice_Date BETWEEN TO_DATE (&from, 'DD-MM-YYYY') AND TO_DATE (&to, 'DD
  AND s.inventory > &inventoryMin
 ORDER BY i.Invoice_Date;
 ```
-Stage.2\ParamsQueries\ScreenShots\first_ParamsQuery.png
+![Stage.2\ParamsQueries\ScreenShots\first_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/first_ParamsQuery.png)
 
 2. All employees who ordered from a certain supplier, the user must enter the name of the supplier and data about the employee.
 ```sql
@@ -449,7 +450,7 @@ WHERE e.job_title =  &< name = "title" list =  "Budget Committee, Procurement Ma
  AND s.supplier_name = &< name = �supplierName� list = "SELECT DISTINCT Supplier_Name FROM Supplier" type = "string" >
 ORDER BY e.Employee_ID;
 ```
-Stage.2\ParamsQueries\ScreenShots\second_ParamsQuery.png
+![Stage.2\ParamsQueries\ScreenShots\second_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/second_ParamsQuery.png)
 
 3. A vendor with invoice prices for orders it has supplied, the user must enter date and order details.
 ```sql
@@ -460,7 +461,7 @@ WHERE i.Invoice_Date BETWEEN TO_DATE (&from, 'DD-MM-YYYY') AND TO_DATE (&to, 'DD
  AND i.invoice_cost = &< name = "cost" list = "SELECT DISTINCT Invoice_Cost FROM Invoice" >
 ORDER BY i.Invoice_Cost DESC;
 ```
-Stage.2\ParamsQueries\ScreenShots\third_ParamsQuery.png
+![Stage.2\ParamsQueries\ScreenShots\third_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/third_ParamsQuery.png)
 
 4. Employees who exceeded the annual budget in the last year by a certain percentage.
 ```sql
@@ -479,7 +480,7 @@ WHERE EXISTS (
     )
 );
 ```
-Stage.2\ParamsQueries\ScreenShots\four_ParamsQuery.png
+![Stage.2\ParamsQueries\ScreenShots\four_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/four_ParamsQuery.png)
 
 5. All employees whose bonus price they received in a certain year is greater than the average of the bonuses received in that year.
 ```sql
@@ -497,7 +498,7 @@ HAVING SUM(p.Amount) > (
 )
 ORDER BY Total_Bonus DESC;
 ```
-Stage.2\ParamsQueries\ScreenShots\five_ParamsQuery.png
+![Stage.2\ParamsQueries\ScreenShots\five_ParamsQuery.png](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ParamsQueries/ScreenShots/first_ParamsQuery.png)
 
 ## Constraint
 
