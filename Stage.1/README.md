@@ -1,10 +1,12 @@
-3/6/24
+
 
 •	Shay Mordechai			315689042
 
 •	Yair Miller			314695438
 
                                                   School Management System
+
+3/6/24
 
 Stage 1:
 
