@@ -1,10 +1,10 @@
-16/6/24
-
 •	Shay Mordechai			315689042
 
 •	Yair Miller			314695438
 
                                                   School Management System
+
+16/6/24
 
 Stage 2:
 
@@ -361,8 +361,6 @@ CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'));
 ALTER TABLE Orders
 MODIFY Quantity DEFAULT 1;
 ```
-**prove:**
-![second prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/second_prove.png)
 
 3. **Constraint for Payment table**
 ```sql
