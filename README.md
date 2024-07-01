@@ -544,6 +544,7 @@ CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant'));
 ![third prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/third_prove.png)
 
 Stage 3:
+
 1/7/24
 
 1. **Budget**
@@ -667,6 +668,7 @@ END;
 /
 ```
 ![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.01/Output.png>)
+
 2. **Payments**
 
 Get and Display payments on a period.
@@ -738,3 +740,4 @@ END;
 /
 ```
 ![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.02/Output.png>)
+

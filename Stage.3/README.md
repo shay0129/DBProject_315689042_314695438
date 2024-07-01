@@ -129,6 +129,7 @@ END;
 /
 ```
 ![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.01/Output.png>)
+
 2. **Payments**
 
 Get and Display payments on a period.
@@ -200,3 +201,4 @@ END;
 /
 ```
 ![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.02/Output.png>)
+
