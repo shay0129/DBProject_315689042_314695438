@@ -6,7 +6,7 @@
                                                   School Management System
 3/6/24
 
-Stage 1:
+## Stage 1:
 
 ## Description:
 
@@ -216,7 +216,7 @@ CREATE TABLE Payment (
 
 16/6/24
 
-Stage 2:
+## Stage 2:
 
 ## Queries
 
@@ -584,7 +584,7 @@ CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant'));
 
 ![third prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/third_prove.png)
 
-Stage 3:
+## Stage 3:
 
 1. **Budget**
 
@@ -609,7 +609,7 @@ BEGIN
 END calculate_budget_total;
 /
 ```
-Procedures:
+**Procedures:** Update budget's amount
 ```sql
 CREATE OR REPLACE PROCEDURE update_budget_amount(
     p_employee_id NUMBER, 
@@ -669,14 +669,13 @@ DECLARE
    v_total_budget NUMBER;
    v_new_amount NUMBER := 15000;
    v_threshold NUMBER := 10000;
-   is_worker BOOLEAN := TRUE; -- Example worker status
 BEGIN
    -- Call the function to get the total budget
    v_total_budget := calculate_budget_total(v_employee_id, v_budget_year, v_expense_category);
    DBMS_OUTPUT.PUT_LINE('Total budget for employee ID ' || v_employee_id || ' in year ' || v_budget_year || ' for category ' || v_expense_category || ': ' || v_total_budget);
 
    -- Check if the total budget is below the threshold
-   IF v_total_budget < v_threshold AND is_worker THEN
+   IF v_total_budget < v_threshold THEN
       -- Call the procedure to update the budget amount
       update_budget_amount(v_employee_id, v_budget_year, v_expense_category, v_new_amount);
       DBMS_OUTPUT.PUT_LINE('Budget amount updated for year ' || v_budget_year || ' and category ' || v_expense_category || ' to ' || v_new_amount);
@@ -686,9 +685,6 @@ BEGIN
 
    -- Call the procedure to list all budget items
    list_budget_items(v_employee_id, v_budget_year);
-EXCEPTION
-   WHEN OTHERS THEN
-      DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;
 /
 ```
@@ -805,9 +801,7 @@ BEGIN
 END update_inventory_after_order;
 /
 ```
-
-
-Main:
+**Main:**
 
 ```sql
 DECLARE
@@ -830,8 +824,6 @@ BEGIN
 END;
 /
 ```
-
-
 Quantity:
 
 ![Quantity](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/2610b6a8-456c-4fc6-b633-05bf769737a9)

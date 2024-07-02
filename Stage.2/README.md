@@ -6,7 +6,7 @@
 
 16/6/24
 
-Stage 2:
+## Stage 2:
 
 ## Queries
 

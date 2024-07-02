@@ -8,7 +8,7 @@
 
 3/6/24
 
-Stage 1:
+## Stage 1:
 
 ## Description:
 
