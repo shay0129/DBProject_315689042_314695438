@@ -142,16 +142,16 @@ CREATE TABLE Payment (
 !["Budget Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Budget.png)
 
 3. Supplier:
-!["Supplier Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Supplier.png)
+!["Supplier Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Supplier.png)
 
 4. Invoice:
-!["Invoice Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Invoice.png)
+!["Invoice Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Invoice.png)
 
 5. Orders:
-!["Orders Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Orders.png)
+!["Orders Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Orders.png)
 
 6. Payment:
-!["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Payment.png)
+!["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Payment.png)
 
 ## Data Generate – Three Ways:
 1. Employee:
@@ -171,7 +171,6 @@ CREATE TABLE Payment (
 
 6. Payment:
 ![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Payment.png)
-
 
 ## Text Importer - PLSQL:
 
