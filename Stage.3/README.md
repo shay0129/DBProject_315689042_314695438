@@ -287,6 +287,17 @@ END;
 /
 ```
 
+
+Quantity:
+
 ![Quantity](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/2610b6a8-456c-4fc6-b633-05bf769737a9)
+
+
+Before:
+
 ![Before](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/9a13450a-7852-4ff7-bbd7-7db1aba3ed5e)
+
+
+After:
+
 ![After](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/9850a177-b672-4036-a3f8-c4dfb5a016bf)
