@@ -5,14 +5,13 @@ DECLARE
    v_total_budget NUMBER;
    v_new_amount NUMBER := 15000;
    v_threshold NUMBER := 10000;
-   is_worker BOOLEAN := TRUE; -- Example worker status
 BEGIN
    -- Call the function to get the total budget
    v_total_budget := calculate_budget_total(v_employee_id, v_budget_year, v_expense_category);
    DBMS_OUTPUT.PUT_LINE('Total budget for employee ID ' || v_employee_id || ' in year ' || v_budget_year || ' for category ' || v_expense_category || ': ' || v_total_budget);
 
    -- Check if the total budget is below the threshold
-   IF v_total_budget < v_threshold AND is_worker THEN
+   IF v_total_budget < v_threshold THEN
       -- Call the procedure to update the budget amount
       update_budget_amount(v_employee_id, v_budget_year, v_expense_category, v_new_amount);
       DBMS_OUTPUT.PUT_LINE('Budget amount updated for year ' || v_budget_year || ' and category ' || v_expense_category || ' to ' || v_new_amount);
@@ -22,14 +21,5 @@ BEGIN
 
    -- Call the procedure to list all budget items
    list_budget_items(v_employee_id, v_budget_year);
-EXCEPTION
-   WHEN OTHERS THEN
-      DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;
 /
-
-
-
-
-
-inaert into budget(employee_id, budget_year, expense_category, budget_amount) values();

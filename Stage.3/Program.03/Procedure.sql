@@ -16,10 +16,6 @@ BEGIN
    WHERE Supplier_ID = v_supplier_id;
 
    COMMIT;
-EXCEPTION
-   WHEN OTHERS THEN
-      ROLLBACK;
-      RAISE;
 END update_inventory_after_order;
 /
 

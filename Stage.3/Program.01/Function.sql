@@ -15,9 +15,5 @@ BEGIN
       AND EXPENSE_CATEGORY = p_expense_category;
 
     RETURN v_total_budget;
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('An error occurred in calculate_budget_total: ' || SQLERRM);
-        RETURN 0;
 END calculate_budget_total;
 /

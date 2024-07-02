@@ -1,8 +1,8 @@
 CREATE OR REPLACE PROCEDURE display_payments(start_date DATE, end_date DATE) IS
-    payment_cursor SYS_REFCURSOR;
+    payment_cursor SYS_REFCURSOR; --IS: Declare a cursor
     
     -- Define a record type that matches the structure of the Payment table
-    TYPE payment_record IS RECORD (
+    TYPE payment_record IS RECORD ( -- IS: Define a record type
         PAYMENT_ID Payment.PAYMENT_ID%TYPE,
         EMPLOYEE_ID Payment.EMPLOYEE_ID%TYPE,
         PAYMENT_DATE Payment.PAYMENT_DATE%TYPE,
@@ -10,7 +10,7 @@ CREATE OR REPLACE PROCEDURE display_payments(start_date DATE, end_date DATE) IS
         PAYMENT_PURPOSE Payment.PAYMENT_PURPOSE%TYPE
     );
     
-    payment_rec payment_record;
+    payment_rec payment_record; -- Create a variable of the record type
 BEGIN
     -- Get the cursor from the function
     payment_cursor := get_payments_in_period(start_date, end_date);
@@ -29,8 +29,5 @@ BEGIN
     
     -- Close the cursor
     CLOSE payment_cursor;
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;
 /

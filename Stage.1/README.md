@@ -135,43 +135,66 @@ CREATE TABLE Payment (
 );
 ```
 ## Desc. commands:
-
+1. Employee:
 !["Employee Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Employee.png)
 
+2. Budget:
 !["Budget Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Budget.png)
 
+3. Supplier:
 !["Supplier Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Supplier.png)
 
+4. Invoice:
 !["Invoice Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Invoice.png)
 
+5. Orders:
 !["Orders Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Orders.png)
 
+6. Payment:
 !["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Stage.1\SQL\DESC\Payment.png)
 
 ## Data Generate – Three Ways:
+1. Employee:
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Employee.png)
 
- !["Python Script"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Python_Script.png)
- 
-!["Mockaroo’s website"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Mockaroo_Generator.png)
+2. Budget:
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Budget.png)
 
- !["PLSQL's Data-Generator"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/PLSQL_Data_Generator.png)
- 
+3. Supplier:
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Supplier.png)
+
+4. Invoice:
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Invoice.png)
+
+5. Orders:
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Orders.png)
+
+6. Payment:
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Payment.png)
+
+
 ## Text Importer - PLSQL:
 
+1. Employee:
 !["Employee – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Employee.png)
  
+ 2. Budget:
 !["Budget – 482 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Budget.png)
-. 
+
+3. Supplier:
 !["Supplier – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/PLSQL_Data_Generator.png)
  
+ 4. Invoice:
 !["Invoice – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Invoice.png)
  
+ 5. Orders:
 !["Orders – 497 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Orders.png)
 
+6. Payment:
 !["Payment – 499 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Payment.png)
 
 ## Backup & Recovery
 
-!["Backup screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/backup.png)
+!["Backup Screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/backup.png)
 
-!["Backup screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/recovery.png)
+!["Backup Screenshot"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/Backup/recovery.png)

@@ -12,9 +12,6 @@ BEGIN
       ORDER BY i.Invoice_Date;
 
    RETURN v_orders;
-EXCEPTION
-   WHEN OTHERS THEN
-      RAISE;
 END get_employee_orders;
 /
 
