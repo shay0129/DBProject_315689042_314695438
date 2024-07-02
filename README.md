@@ -220,7 +220,7 @@ Stage 2:
 
 ## Queries
 
-**Select without parameters**
+**Select without parameters:**
 
 1. The employee with the highest total salary including bonuses.
 ```sql
@@ -305,6 +305,7 @@ WHERE EXISTS (
 );
 ```
 ![four query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/four_query.png)
+
 5. Some workers their salary is less than the average.
 ```sql
 -- Query 5: Find the number of employees whose total salary is less than the average salary of all employees.
@@ -329,7 +330,7 @@ SELECT  COUNT(*)
 ```
 ![five query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/five_query.png)
 
-**Update without parameters**
+**Update without parameters:**
 
 6. Updates a job name for an employee under certain conditions.
 
@@ -401,7 +402,7 @@ after
 
 ![‏‏צילום מסך (17)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/54816b7e-b7b4-41d9-891a-6c620d03544e)
 
-**Delete without parameters**
+**Delete without parameters:**
 
 8. Deletes purchasing managers under certain conditions if they have not made any orders at all.
 ```sql
@@ -468,8 +469,7 @@ before
 
 after
 
-...
-
+(less)
 
 ## ParamsQueries
 
@@ -553,9 +553,9 @@ ORDER BY Total_Bonus DESC;
 ```
 ![five ParamsQuery](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/ParamsQueries/five_ParamsQuery.png)
 
-## Constraint
+## Constraints
 
-1. **Constraint for Employee table**
+1. **Constraint for Employee table:**
 ```sql
 -- Constraint for Employee table
 ALTER TABLE Employee
@@ -563,16 +563,17 @@ ADD CONSTRAINT Job_Title
 CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'));
 ```
 **prove:**
+
 ![first prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/first_prove.png)
 
-2. **Constraint for Orders table**
+2. **Constraint for Orders table:**
 ```sql
 -- Constraint for Orders table
 ALTER TABLE Orders
 MODIFY Quantity DEFAULT 1;
 ```
 
-3. **Constraint for Payment table**
+3. **Constraint for Payment table:**
 ```sql
 -- Constraint for Payment table
 ALTER TABLE Payment
@@ -580,11 +581,10 @@ ADD CONSTRAINT Payment_Purpose
 CHECK (Payment_Purpose IN ('Salary', 'Bonus', 'Grant'));
 ```
 **prove:**
+
 ![third prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/third_prove.png)
 
 Stage 3:
-
-1/7/24
 
 1. **Budget**
 
@@ -606,10 +606,6 @@ BEGIN
       AND EXPENSE_CATEGORY = p_expense_category;
 
     RETURN v_total_budget;
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('An error occurred in calculate_budget_total: ' || SQLERRM);
-        RETURN 0;
 END calculate_budget_total;
 /
 ```
@@ -633,7 +629,6 @@ BEGIN
     -- COMMIT;
 EXCEPTION
     WHEN OTHERS THEN
-        -- Optionally, log the error before re-raising it.
         DBMS_OUTPUT.PUT_LINE('An error occurred in update_budget_amount: ' || SQLERRM);
         -- Optionally, you could handle rollback here if needed.
         -- ROLLBACK;
@@ -646,35 +641,26 @@ CREATE OR REPLACE PROCEDURE list_budget_items(
     p_employee_id NUMBER, 
     p_budget_year NUMBER
 )
-IS
-    CURSOR budget_cursor IS
+IS -- IS: Declare the procedure
+    CURSOR budget_cursor IS -- IS: Declare a cursor
         SELECT EXPENSE_CATEGORY, BUDGET_AMOUNT
         FROM Budget
         WHERE EMPLOYEE_ID = p_employee_id
           AND BUDGET_YEAR = p_budget_year;
    
-    budget_rec budget_cursor%ROWTYPE;
+    budget_rec budget_cursor%ROWTYPE; -- Record type to hold cursor data
 BEGIN
     OPEN budget_cursor;
     LOOP
-        FETCH budget_cursor INTO budget_rec;
-        EXIT WHEN budget_cursor%NOTFOUND;
+        FETCH budget_cursor INTO budget_rec; -- Fetch into the record type, because the cursor is strongly typed.
+        EXIT WHEN budget_cursor%NOTFOUND; -- Exit the loop when no more rows are found.
         DBMS_OUTPUT.PUT_LINE('Category: ' || budget_rec.EXPENSE_CATEGORY || ', Amount: ' || budget_rec.BUDGET_AMOUNT);
     END LOOP;
     CLOSE budget_cursor;
-EXCEPTION
-    WHEN OTHERS THEN
-        -- Log the error before re-raising.
-        DBMS_OUTPUT.PUT_LINE('An error occurred in list_budget_items: ' || SQLERRM);
-        -- Ensure the cursor is closed in case of an error.
-        IF budget_cursor%ISOPEN THEN
-            CLOSE budget_cursor;
-        END IF;
-        RAISE;
 END list_budget_items;
 /
 ```
-Main:
+**Main:**
 ```sql
 DECLARE
    v_employee_id NUMBER := 1500;
@@ -710,12 +696,10 @@ END;
 
 2. **Payments**
 
-Get and Display payments on a period.
-
-Function:
+**Function:** Get payments on a period.
 ```sql
 CREATE OR REPLACE FUNCTION get_payments_in_period(start_date DATE, end_date DATE) 
-RETURN SYS_REFCURSOR IS
+RETURN SYS_REFCURSOR IS -- Return a cursor type to allow the result set to be fetched
     payment_cursor SYS_REFCURSOR;
 BEGIN
     OPEN payment_cursor FOR
@@ -727,7 +711,7 @@ BEGIN
 END;
 /
 ```
-Procedure:
+**Procedure:** Display payments on a period.
 ```sql
 CREATE OR REPLACE PROCEDURE display_payments(start_date DATE, end_date DATE) IS
     payment_cursor SYS_REFCURSOR;
@@ -741,7 +725,7 @@ CREATE OR REPLACE PROCEDURE display_payments(start_date DATE, end_date DATE) IS
         PAYMENT_PURPOSE Payment.PAYMENT_PURPOSE%TYPE
     );
     
-    payment_rec payment_record;
+    payment_rec payment_record; -- Create a variable of the record type
 BEGIN
     -- Get the cursor from the function
     payment_cursor := get_payments_in_period(start_date, end_date);
@@ -760,9 +744,6 @@ BEGIN
     
     -- Close the cursor
     CLOSE payment_cursor;
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;
 /
 ```
@@ -782,10 +763,7 @@ END;
 
 3. **Inventory**
 
- Brings all the orders of a certain employee that occurred between certain dates.
-
- Function:
-
+**Function:**  Brings all the orders of a certain employee that occurred between certain dates.
 ```sql
 CREATE OR REPLACE FUNCTION get_employee_orders(p_employee_id NUMBER, p_start_date DATE, p_end_date DATE)
 RETURN SYS_REFCURSOR
@@ -801,18 +779,10 @@ BEGIN
       ORDER BY i.Invoice_Date;
 
    RETURN v_orders;
-EXCEPTION
-   WHEN OTHERS THEN
-      RAISE;
 END get_employee_orders;
 /
 ```
-
-
-Receives an order and updates a supplier's inventory for that order
-
- Procedure:
-
+**Procedure:** Receives an order and updates a supplier's inventory for that order
 ```sql
 CREATE OR REPLACE PROCEDURE update_inventory_after_order(p_order_id NUMBER)
 IS
@@ -832,10 +802,6 @@ BEGIN
    WHERE Supplier_ID = v_supplier_id;
 
    COMMIT;
-EXCEPTION
-   WHEN OTHERS THEN
-      ROLLBACK;
-      RAISE;
 END update_inventory_after_order;
 /
 ```

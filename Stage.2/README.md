@@ -10,7 +10,7 @@ Stage 2:
 
 ## Queries
 
-**Select without parameters**
+**Select without parameters:**
 
 1. The employee with the highest total salary including bonuses.
 ```sql
@@ -95,6 +95,7 @@ WHERE EXISTS (
 );
 ```
 ![four query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/four_query.png)
+
 5. Some workers their salary is less than the average.
 ```sql
 -- Query 5: Find the number of employees whose total salary is less than the average salary of all employees.
@@ -119,7 +120,7 @@ SELECT  COUNT(*)
 ```
 ![five query](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Queries/five_query.png)
 
-**Update without parameters**
+**Update without parameters:**
 
 6. Updates a job name for an employee under certain conditions.
 
@@ -191,7 +192,7 @@ after
 
 ![‏‏צילום מסך (17)](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/54816b7e-b7b4-41d9-891a-6c620d03544e)
 
-**Delete without parameters**
+**Delete without parameters:**
 
 8. Deletes purchasing managers under certain conditions if they have not made any orders at all.
 ```sql
@@ -258,8 +259,7 @@ before
 
 after
 
-...
-
+(less)
 
 ## ParamsQueries
 
@@ -345,7 +345,7 @@ ORDER BY Total_Bonus DESC;
 
 ## Constraint
 
-1. **Constraint for Employee table**
+1. **Constraint for Employee table:**
 ```sql
 -- Constraint for Employee table
 ALTER TABLE Employee
@@ -355,14 +355,14 @@ CHECK (Job_Title IN ('Budget Committee', 'Procurement Manager', 'Worker'));
 **prove:**
 ![first prove](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.2/ScreenShots/Constraints/first_prove.png)
 
-2. **Constraint for Orders table**
+2. **Constraint for Orders table:**
 ```sql
 -- Constraint for Orders table
 ALTER TABLE Orders
 MODIFY Quantity DEFAULT 1;
 ```
 
-3. **Constraint for Payment table**
+3. **Constraint for Payment table:**
 ```sql
 -- Constraint for Payment table
 ALTER TABLE Payment
