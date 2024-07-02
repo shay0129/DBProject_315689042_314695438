@@ -27,3 +27,9 @@ EXCEPTION
       DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;
 /
+
+
+
+
+
+inaert into budget(employee_id, budget_year, expense_category, budget_amount) values();

@@ -741,3 +741,102 @@ END;
 ```
 ![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.02/Output.png>)
 
+3. **Inventory**
+
+ Brings all the orders of a certain employee that occurred between certain dates.
+
+ Function:
+
+```sql
+CREATE OR REPLACE FUNCTION get_employee_orders(p_employee_id NUMBER, p_start_date DATE, p_end_date DATE)
+RETURN SYS_REFCURSOR
+IS
+   v_orders SYS_REFCURSOR;
+BEGIN
+   OPEN v_orders FOR
+      SELECT o.Order_ID
+      FROM Orders o
+      JOIN Invoice i ON o.Invoice_ID = i.Invoice_ID
+      WHERE o.Employee_ID = p_employee_id
+       AND i.Invoice_Date BETWEEN p_start_date AND p_end_date
+      ORDER BY i.Invoice_Date;
+
+   RETURN v_orders;
+EXCEPTION
+   WHEN OTHERS THEN
+      RAISE;
+END get_employee_orders;
+/
+```
+
+
+Receives an order and updates a supplier's inventory for that order
+
+ Procedure:
+
+```sql
+CREATE OR REPLACE PROCEDURE update_inventory_after_order(p_order_id NUMBER)
+IS
+   v_supplier_id NUMBER;
+   v_quantity NUMBER;
+   CURSOR order_cursor IS
+      SELECT Supplier_ID, Quantity
+      FROM Orders
+      WHERE Order_ID = p_order_id;
+BEGIN
+   OPEN order_cursor;
+   FETCH order_cursor INTO v_supplier_id, v_quantity;
+   CLOSE order_cursor;
+
+   UPDATE Supplier
+   SET Inventory = Inventory - v_quantity
+   WHERE Supplier_ID = v_supplier_id;
+
+   COMMIT;
+EXCEPTION
+   WHEN OTHERS THEN
+      ROLLBACK;
+      RAISE;
+END update_inventory_after_order;
+/
+```
+
+
+Main:
+
+```sql
+DECLARE
+   v_employee_id NUMBER := 1883;
+   v_start_date DATE := TO_DATE('01-01-2017', 'DD-MM-YYYY');
+   v_end_date DATE := TO_DATE('01-04-2017', 'DD-MM-YYYY');
+   v_order_id NUMBER;
+   v_orders SYS_REFCURSOR;
+BEGIN
+   v_orders := get_employee_orders(v_employee_id, v_start_date, v_end_date);
+
+   LOOP
+      FETCH v_orders INTO v_order_id;
+      EXIT WHEN v_orders%NOTFOUND;
+
+      update_inventory_after_order(v_order_id);
+   END LOOP;
+
+   CLOSE v_orders;
+END;
+/
+```
+
+
+Quantity:
+
+![Quantity](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/2610b6a8-456c-4fc6-b633-05bf769737a9)
+
+
+Before:
+
+![Before](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/9a13450a-7852-4ff7-bbd7-7db1aba3ed5e)
+
+
+After:
+
+![After](https://github.com/shay0129/DBProject_315689042_314695438/assets/116823605/9850a177-b672-4036-a3f8-c4dfb5a016bf)
