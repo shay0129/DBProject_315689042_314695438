@@ -194,7 +194,7 @@ CREATE TABLE Payment (
 
 3. Supplier:
 
-!["Supplier – 500 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/PLSQL_Data_Generator.png)
+![Supplier – 500 records.](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Supplier.png)
  
  4. Invoice:
 
