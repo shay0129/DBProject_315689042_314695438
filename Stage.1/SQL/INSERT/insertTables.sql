@@ -152,6 +152,7 @@ VALUES (4008, 3008, 1508, 5008, 50);
 
 INSERT INTO Orders (Order_ID, Supplier_ID, Employee_ID, Invoice_ID, Quantity)
 VALUES (4009, 3009, 1509, 5009, 55);
+
 --Payment Insert
 INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
 VALUES (6000, 1500, 1200.50, 'Salary', '30-01-2023');
@@ -182,3 +183,65 @@ VALUES (6008, 1508, 300.00, 'Bonus', '01-07-2023');
 
 INSERT INTO Payment (Payment_ID, Employee_ID, Amount, Payment_Purpose, Payment_Date)
 VALUES (6009, 1509, 650.00, 'Bonus', '05-08-2023');
+
+--Subjects Taught Insert
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Mathematics', 101, 30, 4);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Physics', 102, 25, 5);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Chemistry', 103, 28, 4);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Biology', 104, 32, 3);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('History', 105, 20, 2);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Geography', 106, 22, 3);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('English', 107, 35, 3);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Computer Science', 108, 18, 5);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Art', 109, 15, 1);
+
+INSERT INTO Subjects_Taught (Subject_Name, Class_number, Students_studying_number, Difficulty_level)
+VALUES ('Physical Education', 110, 40, 2);
+
+--Teach Insert
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1500, 'Mathematics');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1501, 'Physics');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1502, 'Chemistry');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1503, 'Biology');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1504, 'History');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1505, 'Geography');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1506, 'English');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1507, 'Computer Science');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1508, 'Art');
+
+INSERT INTO Teach (Employee_ID, Subject_Name)
+VALUES (1509, 'Physical Education');
