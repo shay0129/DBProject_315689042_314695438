@@ -12,13 +12,19 @@
 
 ## Description:
 
-This system is designed to manage a school's administrative operations, including employee information, budgeting, procurement, and financial transactions.
+• Employee Management: Storing information about employees, their roles, seniority, and contact details.
+• Budgeting: Defining and tracking budgets allocated to different expense categories and years.
+• Procurement: Managing suppliers, purchase orders, and invoices.
+• Financial Transactions: Recording payments made to employees (salary, bonuses, grants).
+• Academic Management: Tracking subjects taught, class sizes, and difficulty levels, as well as assigning subjects to teachers.
 
 Data Entities:
 
+| Table Name       | Description
+
 •	__Employee__ (***Employee_ID***,Employee_Name, Seniority, Contact_Information, Job_Title)
 
-•	__Budget__ (***Budget_Code***, _Employee_ID_, Expense_Category, Budget_Amount, Budget_Year)
+•	__Budget__ (Budget_Code, _Employee_ID_, ***Expense_Category***, Budget_Amount, ***Budget_Year***)
 
 •	__Supplier__ (***Supplier_ID***, Supplier_Name, Contact_Information, Inventory)
 
@@ -27,6 +33,10 @@ Data Entities:
 •	__Orders__ (***Order_ID***, _Supplier_ID_, _Employee_ID_, Invoice_ID, Quantity)
 
 •	__Payment__ (***Payment_ID***, _Employee_ID_, Amount, Payment_Purpose, Payment_Date)
+
+•	__Subjects Taught__(***Subject Name***, Class Number, Student Count, Difficulty Level)
+
+•	__Teach__(***_Employee_ID_***, ***Subject Name***)
 
 
 **Relationships:**
@@ -41,7 +51,9 @@ Data Entities:
 
 • Each ***Invoice*** is linked to a single ***Order*** (via Order_ID in foreign key).
 
-• Each ***Supplier*** must have exactly one Invoice associated with them, and each Invoice must be associated with exactly one ***Supplier***.
+• Each ***Supplier*** must have exactly one Invoice associated with them, and each Invoice must be associated with exactly one 
+
+***Supplier***.
 
 **Functionality:**
 
@@ -91,11 +103,12 @@ CREATE TABLE Employee (
 );
 
 CREATE TABLE Budget (
-   Budget_Code INT PRIMARY KEY,
+   Budget_Code INT,
    Employee_ID NUMBER(4), -- Each budget must be associated with an employee
    Expense_Category VARCHAR(50),
    Budget_Amount DECIMAL(10,2),
    Budget_Year NUMBER(4),
+   PRIMARY KEY (Expense_Category, Budget_Year),
    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 );
 
@@ -133,6 +146,22 @@ CREATE TABLE Payment (
    Payment_Date DATE,
    FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID)
 );
+
+CREATE TABLE Subjects_Taught (
+    Subject_Name VARCHAR(30) PRIMARY KEY,
+    Class_number INT,
+    Students_studying_number INT,
+    Difficulty_level INT
+);
+
+CREATE TABLE Teach (
+  Employee_ID NUMBER(4),
+  Subject_Name VARCHAR(30),
+  PRIMARY KEY (Employee_ID, Subject_Name),
+  FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID),
+  FOREIGN KEY (Subject_Name) REFERENCES Subjects_Taught(Subject_Name)
+);
+
 ```
 ## Desc. commands:
 1. Employee:
@@ -159,6 +188,14 @@ CREATE TABLE Payment (
 
 !["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Payment.png)
 
+7. Subjects Taught:
+
+!["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Subjects_Taught.png)
+
+8. Teach:
+
+!["Payment Table"](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/SQL/DESC/Teach.png)
+
 ## Data Generate – Three Ways:
 1. Employee:
 
@@ -184,6 +221,14 @@ CREATE TABLE Payment (
 
 ![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Payment.png)
 
+7. Subjects Taught:
+
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Subjects_Taught.png)
+
+8. Teach:
+
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/GENERATE/Teach.png)
+
 ## Text Importer - PLSQL:
 
 1. Employee:
@@ -192,7 +237,7 @@ CREATE TABLE Payment (
  
  2. Budget:
 
-!["Budget – 482 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Budget.png)
+!["Budget – 388 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Budget.png)
 
 3. Supplier:
 
@@ -209,6 +254,16 @@ CREATE TABLE Payment (
 6. Payment:
 
 !["Payment – 499 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Payment.png)
+
+7. Subjects_Taught:
+
+!["Orders – 348 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Subjects_Taught.png)
+
+
+8. Teach:
+
+!["Orders – 199 records."](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.1/DataImporterFiles/IMPORT/Teach.png)
+
 
 ## Backup & Recovery
 
