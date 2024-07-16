@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION get_payments_in_period(start_date DATE, end_date DATE) 
+CREATE OR REPLACE NONEDITIONABLE FUNCTION get_payments_in_period(start_date DATE, end_date DATE)
 RETURN SYS_REFCURSOR IS -- Return a cursor type to allow the result set to be fetched
     payment_cursor SYS_REFCURSOR;
 BEGIN

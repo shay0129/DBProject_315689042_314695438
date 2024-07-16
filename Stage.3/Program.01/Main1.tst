@@ -1,3 +1,5 @@
+PL/SQL Developer Test script 3.0
+25
 DECLARE
    v_employee_id NUMBER := 1500;
    v_budget_year NUMBER := 2014;
@@ -23,3 +25,5 @@ BEGIN
    list_budget_items(v_employee_id, v_budget_year);
 END;
 /
+0
+0
