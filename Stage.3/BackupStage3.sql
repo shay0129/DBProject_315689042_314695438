@@ -1,5 +1,5 @@
 ﻿prompt PL/SQL Developer Export Tables for user SYS@XE
-prompt Created by ShayMordechai on Tuesday, July 16, 2024
+prompt Created by ShayMordechai on Sunday, July 28, 2024
 set feedback off
 set define off
 
@@ -1207,7 +1207,7 @@ commit;
 prompt 500 records loaded
 prompt Loading BUDGET...
 insert into BUDGET (budget_code, employee_id, expense_category, budget_amount, budget_year)
-values (1, 1500, 'Rent or Lease Payments', 3086.49, 2014);
+values (1, 1500, 'Rent or Lease Payments', 15000, 2014);
 insert into BUDGET (budget_code, employee_id, expense_category, budget_amount, budget_year)
 values (2, 1501, 'Special Education', 6240.9, 2023);
 insert into BUDGET (budget_code, employee_id, expense_category, budget_amount, budget_year)
@@ -2386,7 +2386,7 @@ values (3194, 'Scholarly Supplies Shack', 'jmiles@berkshirehathaway.com', -.13);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
 values (3195, 'Study Smart Solutions', 'angie@isd.gr', 6.19);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
-values (3196, 'Scholarly Supply Storefront', 'mingna.shatner@efcbancorp.fr', -90.07);
+values (3196, 'Scholarly Supply Storefront', 'mingna.shatner@efcbancorp.fr', -118.07);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
 values (3197, 'Brainy Basics Emporium', 'g.purefoy@bristolmyers.com', 10.13);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
@@ -2710,7 +2710,7 @@ values (3354, 'Enlightened Educators Emporium', 'crispin@accucode.no', 22.21);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
 values (3355, 'Scholarly Supplies Stop', 'tcheky.smurfit@fflcbancorp.com', -7.91);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
-values (3356, 'IntelliTools Storefront', 'uma.arthur@dcgroup.dk', 48.14);
+values (3356, 'IntelliTools Storefront', 'uma.arthur@dcgroup.dk', -15.86);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
 values (3357, 'Genius Goods Galore', 'trini.s@cyberthink.com', 55.69);
 insert into SUPPLIER (supplier_id, supplier_name, contact_information, inventory)
@@ -6747,405 +6747,405 @@ commit;
 prompt 348 records loaded
 prompt Loading TEACH...
 insert into TEACH (employee_id, subject_name)
-values (1718, 'Algebra II');
-insert into TEACH (employee_id, subject_name)
 values (1500, 'American History');
-insert into TEACH (employee_id, subject_name)
-values (1715, 'Anatomy');
-insert into TEACH (employee_id, subject_name)
-values (1844, 'Ancient Civilizations');
-insert into TEACH (employee_id, subject_name)
-values (1980, 'Anthropology');
-insert into TEACH (employee_id, subject_name)
-values (1777, 'AP Biology');
-insert into TEACH (employee_id, subject_name)
-values (1915, 'AP Calculus AB');
-insert into TEACH (employee_id, subject_name)
-values (1702, 'AP Calculus BC');
-insert into TEACH (employee_id, subject_name)
-values (1799, 'AP Chemistry');
-insert into TEACH (employee_id, subject_name)
-values (1718, 'AP English Language');
-insert into TEACH (employee_id, subject_name)
-values (1537, 'AP English Literature');
-insert into TEACH (employee_id, subject_name)
-values (1569, 'AP Environmental Science');
-insert into TEACH (employee_id, subject_name)
-values (1862, 'AP European History');
-insert into TEACH (employee_id, subject_name)
-values (1730, 'AP French');
-insert into TEACH (employee_id, subject_name)
-values (1652, 'AP Government');
-insert into TEACH (employee_id, subject_name)
-values (1739, 'AP Human Geography');
-insert into TEACH (employee_id, subject_name)
-values (1683, 'AP Macroeconomics');
-insert into TEACH (employee_id, subject_name)
-values (1535, 'AP Microeconomics');
-insert into TEACH (employee_id, subject_name)
-values (1876, 'AP Physics 1');
-insert into TEACH (employee_id, subject_name)
-values (1634, 'AP Physics 2');
-insert into TEACH (employee_id, subject_name)
-values (1820, 'AP Physics C');
-insert into TEACH (employee_id, subject_name)
-values (1885, 'AP Psychology');
-insert into TEACH (employee_id, subject_name)
-values (1752, 'AP Spanish');
-insert into TEACH (employee_id, subject_name)
-values (1757, 'AP Statistics');
-insert into TEACH (employee_id, subject_name)
-values (1647, 'AP Studio Art');
-insert into TEACH (employee_id, subject_name)
-values (1971, 'AP US Government');
-insert into TEACH (employee_id, subject_name)
-values (1794, 'AP US History');
-insert into TEACH (employee_id, subject_name)
-values (1559, 'AP World History');
-insert into TEACH (employee_id, subject_name)
-values (1781, 'Archaeology');
-insert into TEACH (employee_id, subject_name)
-values (1609, 'Architecture');
-insert into TEACH (employee_id, subject_name)
-values (1720, 'Art History');
-insert into TEACH (employee_id, subject_name)
-values (1652, 'Astronomy');
-insert into TEACH (employee_id, subject_name)
-values (1525, 'Band');
-insert into TEACH (employee_id, subject_name)
-values (1971, 'Biochemistry');
-insert into TEACH (employee_id, subject_name)
-values (1837, 'Biology');
 insert into TEACH (employee_id, subject_name)
 values (1504, 'Biotechnology');
 insert into TEACH (employee_id, subject_name)
-values (1605, 'Botany');
-insert into TEACH (employee_id, subject_name)
-values (1710, 'Business Studies');
-insert into TEACH (employee_id, subject_name)
-values (1952, 'Calculus');
-insert into TEACH (employee_id, subject_name)
-values (1690, 'Chemistry');
-insert into TEACH (employee_id, subject_name)
-values (1717, 'Choir');
-insert into TEACH (employee_id, subject_name)
-values (1550, 'Civics');
-insert into TEACH (employee_id, subject_name)
-values (1887, 'Computer Programming');
-insert into TEACH (employee_id, subject_name)
-values (1561, 'Computer Science');
-insert into TEACH (employee_id, subject_name)
-values (1798, 'Creative Writing');
-insert into TEACH (employee_id, subject_name)
-values (1717, 'Criminal Justice');
-insert into TEACH (employee_id, subject_name)
-values (1722, 'Culinary Arts');
-insert into TEACH (employee_id, subject_name)
-values (1532, 'Dance');
-insert into TEACH (employee_id, subject_name)
-values (1862, 'Debate');
-insert into TEACH (employee_id, subject_name)
-values (1577, 'Digital Art');
-insert into TEACH (employee_id, subject_name)
-values (1737, 'Drama');
-insert into TEACH (employee_id, subject_name)
-values (1794, 'Earth Science');
-insert into TEACH (employee_id, subject_name)
-values (1980, 'Economics');
-insert into TEACH (employee_id, subject_name)
-values (1740, 'Engineering');
-insert into TEACH (employee_id, subject_name)
-values (1780, 'English Composition');
-insert into TEACH (employee_id, subject_name)
-values (1833, 'English Literature');
-insert into TEACH (employee_id, subject_name)
-values (1651, 'Environmental Science');
-insert into TEACH (employee_id, subject_name)
-values (1971, 'European History');
-insert into TEACH (employee_id, subject_name)
-values (1833, 'Film Studies');
-insert into TEACH (employee_id, subject_name)
-values (1559, 'Finance');
-insert into TEACH (employee_id, subject_name)
-values (1518, 'Forensic Science');
-insert into TEACH (employee_id, subject_name)
-values (1695, 'French I');
-insert into TEACH (employee_id, subject_name)
-values (1804, 'French II');
-insert into TEACH (employee_id, subject_name)
-values (1836, 'French III');
-insert into TEACH (employee_id, subject_name)
-values (1724, 'French IV');
-insert into TEACH (employee_id, subject_name)
-values (1959, 'Geography');
-insert into TEACH (employee_id, subject_name)
-values (1613, 'Geology');
-insert into TEACH (employee_id, subject_name)
-values (1671, 'Geometry');
-insert into TEACH (employee_id, subject_name)
-values (1877, 'German I');
-insert into TEACH (employee_id, subject_name)
-values (1975, 'German II');
-insert into TEACH (employee_id, subject_name)
-values (1991, 'German III');
-insert into TEACH (employee_id, subject_name)
-values (1721, 'German IV');
-insert into TEACH (employee_id, subject_name)
-values (1889, 'Graphic Design');
-insert into TEACH (employee_id, subject_name)
-values (1863, 'Health');
-insert into TEACH (employee_id, subject_name)
-values (1762, 'History of Art');
-insert into TEACH (employee_id, subject_name)
-values (1801, 'Human Anatomy');
-insert into TEACH (employee_id, subject_name)
-values (1642, 'Information Technology');
-insert into TEACH (employee_id, subject_name)
-values (1755, 'Japanese I');
-insert into TEACH (employee_id, subject_name)
-values (1582, 'Japanese II');
-insert into TEACH (employee_id, subject_name)
-values (1942, 'Japanese III');
-insert into TEACH (employee_id, subject_name)
-values (1538, 'Japanese IV');
-insert into TEACH (employee_id, subject_name)
-values (1839, 'Journalism');
-insert into TEACH (employee_id, subject_name)
-values (1623, 'Latin I');
-insert into TEACH (employee_id, subject_name)
-values (1627, 'Latin II');
-insert into TEACH (employee_id, subject_name)
-values (1671, 'Latin III');
-insert into TEACH (employee_id, subject_name)
-values (1810, 'Latin IV');
-insert into TEACH (employee_id, subject_name)
-values (1731, 'Law');
-insert into TEACH (employee_id, subject_name)
-values (1578, 'Literature');
-insert into TEACH (employee_id, subject_name)
-values (1896, 'Marine Biology');
-insert into TEACH (employee_id, subject_name)
-values (1947, 'Marketing');
-insert into TEACH (employee_id, subject_name)
-values (1621, 'Mathematics');
-insert into TEACH (employee_id, subject_name)
-values (1874, 'Mechanical Engineering');
-insert into TEACH (employee_id, subject_name)
-values (1998, 'Media Studies');
-insert into TEACH (employee_id, subject_name)
-values (1697, 'Meteorology');
-insert into TEACH (employee_id, subject_name)
-values (1563, 'Microbiology');
-insert into TEACH (employee_id, subject_name)
-values (1827, 'Music Appreciation');
-insert into TEACH (employee_id, subject_name)
-values (1738, 'Music Theory');
-insert into TEACH (employee_id, subject_name)
-values (1762, 'Nutrition');
-insert into TEACH (employee_id, subject_name)
-values (1674, 'Oceanography');
-insert into TEACH (employee_id, subject_name)
-values (1893, 'Orchestra');
-commit;
-prompt 100 records committed...
-insert into TEACH (employee_id, subject_name)
-values (1874, 'Organic Chemistry');
-insert into TEACH (employee_id, subject_name)
-values (1692, 'Philosophy');
-insert into TEACH (employee_id, subject_name)
-values (1552, 'Photography');
-insert into TEACH (employee_id, subject_name)
-values (1546, 'Physical Education');
-insert into TEACH (employee_id, subject_name)
-values (1571, 'Physical Science');
-insert into TEACH (employee_id, subject_name)
-values (1950, 'Physics');
-insert into TEACH (employee_id, subject_name)
-values (1614, 'Physiology');
-insert into TEACH (employee_id, subject_name)
-values (1755, 'Political Science');
-insert into TEACH (employee_id, subject_name)
-values (1929, 'Pre-Algebra');
-insert into TEACH (employee_id, subject_name)
-values (1739, 'Pre-Calculus');
-insert into TEACH (employee_id, subject_name)
-values (1652, 'Psychology');
-insert into TEACH (employee_id, subject_name)
-values (1722, 'Public Speaking');
-insert into TEACH (employee_id, subject_name)
-values (1561, 'Robotics');
-insert into TEACH (employee_id, subject_name)
-values (1944, 'Russian I');
-insert into TEACH (employee_id, subject_name)
-values (1810, 'Russian II');
-insert into TEACH (employee_id, subject_name)
-values (1673, 'Russian III');
-insert into TEACH (employee_id, subject_name)
-values (1549, 'Russian IV');
-insert into TEACH (employee_id, subject_name)
-values (1725, 'Sociology');
-insert into TEACH (employee_id, subject_name)
-values (1729, 'Spanish I');
-insert into TEACH (employee_id, subject_name)
-values (1710, 'Spanish II');
-insert into TEACH (employee_id, subject_name)
-values (1841, 'Spanish III');
-insert into TEACH (employee_id, subject_name)
-values (1972, 'Spanish IV');
-insert into TEACH (employee_id, subject_name)
-values (1660, 'Statistics');
-insert into TEACH (employee_id, subject_name)
-values (1929, 'Studio Art');
-insert into TEACH (employee_id, subject_name)
-values (1698, 'Theater');
-insert into TEACH (employee_id, subject_name)
-values (1719, 'Trigonometry');
-insert into TEACH (employee_id, subject_name)
-values (1743, 'US Government');
-insert into TEACH (employee_id, subject_name)
-values (1753, 'US History');
-insert into TEACH (employee_id, subject_name)
-values (1577, 'Web Design');
-insert into TEACH (employee_id, subject_name)
-values (1623, 'World Geography');
-insert into TEACH (employee_id, subject_name)
-values (1780, 'World History');
+values (1505, 'English IV');
 insert into TEACH (employee_id, subject_name)
 values (1507, 'World Literature');
 insert into TEACH (employee_id, subject_name)
-values (1581, 'Writing');
-insert into TEACH (employee_id, subject_name)
-values (1601, 'Zoology');
-insert into TEACH (employee_id, subject_name)
-values (1902, 'Accounting');
-insert into TEACH (employee_id, subject_name)
-values (1961, 'Advertising');
-insert into TEACH (employee_id, subject_name)
-values (1610, 'Aerospace Engineering');
-insert into TEACH (employee_id, subject_name)
-values (1786, 'Agriculture');
-insert into TEACH (employee_id, subject_name)
-values (1691, 'Algebra III');
-insert into TEACH (employee_id, subject_name)
-values (1652, 'Ancient History');
-insert into TEACH (employee_id, subject_name)
-values (1777, 'Animal Science');
-insert into TEACH (employee_id, subject_name)
-values (1741, 'Anthropology');
-insert into TEACH (employee_id, subject_name)
-values (1812, 'Arabic I');
-insert into TEACH (employee_id, subject_name)
-values (1988, 'Arabic II');
-insert into TEACH (employee_id, subject_name)
-values (1561, 'Arabic III');
-insert into TEACH (employee_id, subject_name)
-values (1725, 'Arabic IV');
-insert into TEACH (employee_id, subject_name)
-values (1752, 'Archaeology');
-insert into TEACH (employee_id, subject_name)
-values (1900, 'Architecture');
-insert into TEACH (employee_id, subject_name)
-values (1606, 'Art');
-insert into TEACH (employee_id, subject_name)
-values (1855, 'Asian History');
+values (1518, 'Forensic Science');
 insert into TEACH (employee_id, subject_name)
 values (1524, 'Astronomy');
 insert into TEACH (employee_id, subject_name)
-values (1623, 'Banking');
-insert into TEACH (employee_id, subject_name)
-values (1583, 'Botany');
+values (1525, 'Band');
 insert into TEACH (employee_id, subject_name)
 values (1527, 'Business');
 insert into TEACH (employee_id, subject_name)
-values (1907, 'Calculus I');
-insert into TEACH (employee_id, subject_name)
-values (1588, 'Calculus II');
-insert into TEACH (employee_id, subject_name)
-values (1765, 'Calculus III');
-insert into TEACH (employee_id, subject_name)
 values (1529, 'Career Development');
 insert into TEACH (employee_id, subject_name)
-values (1707, 'Chemistry I');
+values (1532, 'Dance');
 insert into TEACH (employee_id, subject_name)
-values (1591, 'Chemistry II');
+values (1535, 'AP Microeconomics');
 insert into TEACH (employee_id, subject_name)
-values (1765, 'Chemistry III');
+values (1537, 'AP English Literature');
 insert into TEACH (employee_id, subject_name)
-values (1768, 'Child Development');
+values (1538, 'Japanese IV');
 insert into TEACH (employee_id, subject_name)
-values (1673, 'Classical Studies');
+values (1546, 'Physical Education');
 insert into TEACH (employee_id, subject_name)
-values (1864, 'Coding');
+values (1549, 'Russian IV');
 insert into TEACH (employee_id, subject_name)
-values (1685, 'Communications');
+values (1550, 'Civics');
 insert into TEACH (employee_id, subject_name)
-values (1672, 'Comparative Government');
+values (1552, 'Photography');
 insert into TEACH (employee_id, subject_name)
-values (1580, 'Computer Graphics');
+values (1559, 'AP World History');
 insert into TEACH (employee_id, subject_name)
-values (1934, 'Computer Networking');
+values (1559, 'Finance');
 insert into TEACH (employee_id, subject_name)
-values (1687, 'Computer Repair');
+values (1561, 'Arabic III');
 insert into TEACH (employee_id, subject_name)
-values (1729, 'Construction');
+values (1561, 'Computer Science');
 insert into TEACH (employee_id, subject_name)
-values (1724, 'Cosmetology');
+values (1561, 'Robotics');
 insert into TEACH (employee_id, subject_name)
-values (1722, 'Creative Arts');
-insert into TEACH (employee_id, subject_name)
-values (1969, 'Criminal Law');
-insert into TEACH (employee_id, subject_name)
-values (1868, 'Culinary Skills');
-insert into TEACH (employee_id, subject_name)
-values (1682, 'Cybersecurity');
-insert into TEACH (employee_id, subject_name)
-values (1577, 'Dance I');
-insert into TEACH (employee_id, subject_name)
-values (1805, 'Dance II');
-insert into TEACH (employee_id, subject_name)
-values (1669, 'Dance III');
-insert into TEACH (employee_id, subject_name)
-values (1719, 'Dance IV');
-insert into TEACH (employee_id, subject_name)
-values (1616, 'Database Management');
-insert into TEACH (employee_id, subject_name)
-values (1767, 'Design');
-insert into TEACH (employee_id, subject_name)
-values (1983, 'Digital Media');
-insert into TEACH (employee_id, subject_name)
-values (1648, 'Drama I');
-insert into TEACH (employee_id, subject_name)
-values (1873, 'Drama II');
-insert into TEACH (employee_id, subject_name)
-values (1985, 'Drama III');
-insert into TEACH (employee_id, subject_name)
-values (1623, 'Drama IV');
-insert into TEACH (employee_id, subject_name)
-values (1868, 'Earth and Space Science');
+values (1563, 'Microbiology');
 insert into TEACH (employee_id, subject_name)
 values (1565, 'Economics I');
 insert into TEACH (employee_id, subject_name)
-values (1776, 'Economics II');
+values (1569, 'AP Environmental Science');
 insert into TEACH (employee_id, subject_name)
-values (1830, 'Electrical Engineering');
+values (1571, 'Physical Science');
 insert into TEACH (employee_id, subject_name)
-values (1867, 'Electronics');
+values (1577, 'Dance I');
 insert into TEACH (employee_id, subject_name)
-values (1764, 'Elementary Algebra');
+values (1577, 'Digital Art');
 insert into TEACH (employee_id, subject_name)
-values (1962, 'Emergency Management');
+values (1577, 'Web Design');
 insert into TEACH (employee_id, subject_name)
-values (1857, 'Engineering Design');
+values (1578, 'Literature');
 insert into TEACH (employee_id, subject_name)
-values (1845, 'English I');
+values (1580, 'Computer Graphics');
 insert into TEACH (employee_id, subject_name)
-values (1889, 'English II');
+values (1581, 'Writing');
+insert into TEACH (employee_id, subject_name)
+values (1582, 'Japanese II');
+insert into TEACH (employee_id, subject_name)
+values (1583, 'Botany');
+insert into TEACH (employee_id, subject_name)
+values (1588, 'Calculus II');
+insert into TEACH (employee_id, subject_name)
+values (1591, 'Chemistry II');
+insert into TEACH (employee_id, subject_name)
+values (1601, 'Zoology');
+insert into TEACH (employee_id, subject_name)
+values (1605, 'Botany');
+insert into TEACH (employee_id, subject_name)
+values (1606, 'Art');
+insert into TEACH (employee_id, subject_name)
+values (1609, 'Architecture');
+insert into TEACH (employee_id, subject_name)
+values (1610, 'Aerospace Engineering');
+insert into TEACH (employee_id, subject_name)
+values (1613, 'Geology');
+insert into TEACH (employee_id, subject_name)
+values (1614, 'Physiology');
+insert into TEACH (employee_id, subject_name)
+values (1616, 'Database Management');
+insert into TEACH (employee_id, subject_name)
+values (1621, 'Mathematics');
+insert into TEACH (employee_id, subject_name)
+values (1623, 'Banking');
+insert into TEACH (employee_id, subject_name)
+values (1623, 'Drama IV');
+insert into TEACH (employee_id, subject_name)
+values (1623, 'Latin I');
+insert into TEACH (employee_id, subject_name)
+values (1623, 'World Geography');
+insert into TEACH (employee_id, subject_name)
+values (1627, 'Latin II');
+insert into TEACH (employee_id, subject_name)
+values (1634, 'AP Physics 2');
+insert into TEACH (employee_id, subject_name)
+values (1642, 'Information Technology');
+insert into TEACH (employee_id, subject_name)
+values (1647, 'AP Studio Art');
+insert into TEACH (employee_id, subject_name)
+values (1648, 'Drama I');
+insert into TEACH (employee_id, subject_name)
+values (1651, 'Environmental Science');
+insert into TEACH (employee_id, subject_name)
+values (1652, 'AP Government');
+insert into TEACH (employee_id, subject_name)
+values (1652, 'Ancient History');
+insert into TEACH (employee_id, subject_name)
+values (1652, 'Astronomy');
+insert into TEACH (employee_id, subject_name)
+values (1652, 'Psychology');
+insert into TEACH (employee_id, subject_name)
+values (1660, 'Statistics');
+insert into TEACH (employee_id, subject_name)
+values (1669, 'Dance III');
+insert into TEACH (employee_id, subject_name)
+values (1671, 'Geometry');
+insert into TEACH (employee_id, subject_name)
+values (1671, 'Latin III');
+insert into TEACH (employee_id, subject_name)
+values (1672, 'Comparative Government');
+insert into TEACH (employee_id, subject_name)
+values (1673, 'Classical Studies');
+insert into TEACH (employee_id, subject_name)
+values (1673, 'Russian III');
+insert into TEACH (employee_id, subject_name)
+values (1674, 'Oceanography');
+insert into TEACH (employee_id, subject_name)
+values (1682, 'Cybersecurity');
+insert into TEACH (employee_id, subject_name)
+values (1683, 'AP Macroeconomics');
+insert into TEACH (employee_id, subject_name)
+values (1685, 'Communications');
+insert into TEACH (employee_id, subject_name)
+values (1687, 'Computer Repair');
+insert into TEACH (employee_id, subject_name)
+values (1690, 'Chemistry');
+insert into TEACH (employee_id, subject_name)
+values (1691, 'Algebra III');
 insert into TEACH (employee_id, subject_name)
 values (1691, 'English III');
 insert into TEACH (employee_id, subject_name)
-values (1505, 'English IV');
+values (1692, 'Philosophy');
+insert into TEACH (employee_id, subject_name)
+values (1695, 'French I');
+insert into TEACH (employee_id, subject_name)
+values (1697, 'Meteorology');
+insert into TEACH (employee_id, subject_name)
+values (1698, 'Theater');
+insert into TEACH (employee_id, subject_name)
+values (1702, 'AP Calculus BC');
+insert into TEACH (employee_id, subject_name)
+values (1707, 'Chemistry I');
+insert into TEACH (employee_id, subject_name)
+values (1710, 'Business Studies');
+insert into TEACH (employee_id, subject_name)
+values (1710, 'Spanish II');
+insert into TEACH (employee_id, subject_name)
+values (1715, 'Anatomy');
+insert into TEACH (employee_id, subject_name)
+values (1717, 'Choir');
+insert into TEACH (employee_id, subject_name)
+values (1717, 'Criminal Justice');
+insert into TEACH (employee_id, subject_name)
+values (1718, 'AP English Language');
+insert into TEACH (employee_id, subject_name)
+values (1718, 'Algebra II');
+insert into TEACH (employee_id, subject_name)
+values (1719, 'Dance IV');
+insert into TEACH (employee_id, subject_name)
+values (1719, 'Trigonometry');
+insert into TEACH (employee_id, subject_name)
+values (1720, 'Art History');
+insert into TEACH (employee_id, subject_name)
+values (1721, 'German IV');
+insert into TEACH (employee_id, subject_name)
+values (1722, 'Creative Arts');
+insert into TEACH (employee_id, subject_name)
+values (1722, 'Culinary Arts');
+insert into TEACH (employee_id, subject_name)
+values (1722, 'Public Speaking');
+insert into TEACH (employee_id, subject_name)
+values (1724, 'Cosmetology');
+insert into TEACH (employee_id, subject_name)
+values (1724, 'French IV');
+insert into TEACH (employee_id, subject_name)
+values (1725, 'Arabic IV');
+insert into TEACH (employee_id, subject_name)
+values (1725, 'Sociology');
+insert into TEACH (employee_id, subject_name)
+values (1729, 'Construction');
+insert into TEACH (employee_id, subject_name)
+values (1729, 'Spanish I');
+commit;
+prompt 100 records committed...
+insert into TEACH (employee_id, subject_name)
+values (1730, 'AP French');
+insert into TEACH (employee_id, subject_name)
+values (1731, 'Law');
+insert into TEACH (employee_id, subject_name)
+values (1737, 'Drama');
+insert into TEACH (employee_id, subject_name)
+values (1738, 'Music Theory');
+insert into TEACH (employee_id, subject_name)
+values (1739, 'AP Human Geography');
+insert into TEACH (employee_id, subject_name)
+values (1739, 'Pre-Calculus');
+insert into TEACH (employee_id, subject_name)
+values (1740, 'Engineering');
+insert into TEACH (employee_id, subject_name)
+values (1741, 'Anthropology');
+insert into TEACH (employee_id, subject_name)
+values (1743, 'US Government');
+insert into TEACH (employee_id, subject_name)
+values (1752, 'AP Spanish');
+insert into TEACH (employee_id, subject_name)
+values (1752, 'Archaeology');
+insert into TEACH (employee_id, subject_name)
+values (1753, 'US History');
+insert into TEACH (employee_id, subject_name)
+values (1755, 'Japanese I');
+insert into TEACH (employee_id, subject_name)
+values (1755, 'Political Science');
+insert into TEACH (employee_id, subject_name)
+values (1757, 'AP Statistics');
+insert into TEACH (employee_id, subject_name)
+values (1762, 'History of Art');
+insert into TEACH (employee_id, subject_name)
+values (1762, 'Nutrition');
+insert into TEACH (employee_id, subject_name)
+values (1764, 'Elementary Algebra');
+insert into TEACH (employee_id, subject_name)
+values (1765, 'Calculus III');
+insert into TEACH (employee_id, subject_name)
+values (1765, 'Chemistry III');
+insert into TEACH (employee_id, subject_name)
+values (1767, 'Design');
+insert into TEACH (employee_id, subject_name)
+values (1768, 'Child Development');
+insert into TEACH (employee_id, subject_name)
+values (1776, 'Economics II');
+insert into TEACH (employee_id, subject_name)
+values (1777, 'AP Biology');
+insert into TEACH (employee_id, subject_name)
+values (1777, 'Animal Science');
+insert into TEACH (employee_id, subject_name)
+values (1780, 'English Composition');
+insert into TEACH (employee_id, subject_name)
+values (1780, 'World History');
+insert into TEACH (employee_id, subject_name)
+values (1781, 'Archaeology');
+insert into TEACH (employee_id, subject_name)
+values (1786, 'Agriculture');
+insert into TEACH (employee_id, subject_name)
+values (1794, 'AP US History');
+insert into TEACH (employee_id, subject_name)
+values (1794, 'Earth Science');
+insert into TEACH (employee_id, subject_name)
+values (1798, 'Creative Writing');
+insert into TEACH (employee_id, subject_name)
+values (1799, 'AP Chemistry');
+insert into TEACH (employee_id, subject_name)
+values (1801, 'Human Anatomy');
+insert into TEACH (employee_id, subject_name)
+values (1804, 'French II');
+insert into TEACH (employee_id, subject_name)
+values (1805, 'Dance II');
+insert into TEACH (employee_id, subject_name)
+values (1810, 'Latin IV');
+insert into TEACH (employee_id, subject_name)
+values (1810, 'Russian II');
+insert into TEACH (employee_id, subject_name)
+values (1812, 'Arabic I');
+insert into TEACH (employee_id, subject_name)
+values (1820, 'AP Physics C');
+insert into TEACH (employee_id, subject_name)
+values (1827, 'Music Appreciation');
+insert into TEACH (employee_id, subject_name)
+values (1830, 'Electrical Engineering');
+insert into TEACH (employee_id, subject_name)
+values (1833, 'English Literature');
+insert into TEACH (employee_id, subject_name)
+values (1833, 'Film Studies');
+insert into TEACH (employee_id, subject_name)
+values (1836, 'French III');
+insert into TEACH (employee_id, subject_name)
+values (1837, 'Biology');
+insert into TEACH (employee_id, subject_name)
+values (1839, 'Journalism');
+insert into TEACH (employee_id, subject_name)
+values (1841, 'Spanish III');
+insert into TEACH (employee_id, subject_name)
+values (1844, 'Ancient Civilizations');
+insert into TEACH (employee_id, subject_name)
+values (1845, 'English I');
+insert into TEACH (employee_id, subject_name)
+values (1855, 'Asian History');
+insert into TEACH (employee_id, subject_name)
+values (1857, 'Engineering Design');
+insert into TEACH (employee_id, subject_name)
+values (1862, 'AP European History');
+insert into TEACH (employee_id, subject_name)
+values (1862, 'Debate');
+insert into TEACH (employee_id, subject_name)
+values (1863, 'Health');
+insert into TEACH (employee_id, subject_name)
+values (1864, 'Coding');
+insert into TEACH (employee_id, subject_name)
+values (1867, 'Electronics');
+insert into TEACH (employee_id, subject_name)
+values (1868, 'Culinary Skills');
+insert into TEACH (employee_id, subject_name)
+values (1868, 'Earth and Space Science');
+insert into TEACH (employee_id, subject_name)
+values (1873, 'Drama II');
+insert into TEACH (employee_id, subject_name)
+values (1874, 'Mechanical Engineering');
+insert into TEACH (employee_id, subject_name)
+values (1874, 'Organic Chemistry');
+insert into TEACH (employee_id, subject_name)
+values (1876, 'AP Physics 1');
+insert into TEACH (employee_id, subject_name)
+values (1877, 'German I');
+insert into TEACH (employee_id, subject_name)
+values (1885, 'AP Psychology');
+insert into TEACH (employee_id, subject_name)
+values (1887, 'Computer Programming');
+insert into TEACH (employee_id, subject_name)
+values (1889, 'English II');
+insert into TEACH (employee_id, subject_name)
+values (1889, 'Graphic Design');
+insert into TEACH (employee_id, subject_name)
+values (1893, 'Orchestra');
+insert into TEACH (employee_id, subject_name)
+values (1896, 'Marine Biology');
+insert into TEACH (employee_id, subject_name)
+values (1900, 'Architecture');
+insert into TEACH (employee_id, subject_name)
+values (1902, 'Accounting');
+insert into TEACH (employee_id, subject_name)
+values (1907, 'Calculus I');
 insert into TEACH (employee_id, subject_name)
 values (1910, 'Environmental Engineering');
+insert into TEACH (employee_id, subject_name)
+values (1915, 'AP Calculus AB');
+insert into TEACH (employee_id, subject_name)
+values (1929, 'Pre-Algebra');
+insert into TEACH (employee_id, subject_name)
+values (1929, 'Studio Art');
+insert into TEACH (employee_id, subject_name)
+values (1934, 'Computer Networking');
+insert into TEACH (employee_id, subject_name)
+values (1942, 'Japanese III');
+insert into TEACH (employee_id, subject_name)
+values (1944, 'Russian I');
+insert into TEACH (employee_id, subject_name)
+values (1947, 'Marketing');
+insert into TEACH (employee_id, subject_name)
+values (1950, 'Physics');
+insert into TEACH (employee_id, subject_name)
+values (1952, 'Calculus');
+insert into TEACH (employee_id, subject_name)
+values (1959, 'Geography');
+insert into TEACH (employee_id, subject_name)
+values (1961, 'Advertising');
+insert into TEACH (employee_id, subject_name)
+values (1962, 'Emergency Management');
+insert into TEACH (employee_id, subject_name)
+values (1969, 'Criminal Law');
+insert into TEACH (employee_id, subject_name)
+values (1971, 'AP US Government');
+insert into TEACH (employee_id, subject_name)
+values (1971, 'Biochemistry');
+insert into TEACH (employee_id, subject_name)
+values (1971, 'European History');
+insert into TEACH (employee_id, subject_name)
+values (1972, 'Spanish IV');
+insert into TEACH (employee_id, subject_name)
+values (1975, 'German II');
+insert into TEACH (employee_id, subject_name)
+values (1980, 'Anthropology');
+insert into TEACH (employee_id, subject_name)
+values (1980, 'Economics');
+insert into TEACH (employee_id, subject_name)
+values (1983, 'Digital Media');
+insert into TEACH (employee_id, subject_name)
+values (1985, 'Drama III');
+insert into TEACH (employee_id, subject_name)
+values (1988, 'Arabic II');
+insert into TEACH (employee_id, subject_name)
+values (1991, 'German III');
+insert into TEACH (employee_id, subject_name)
+values (1998, 'Media Studies');
 commit;
 prompt 199 records loaded
 prompt Enabling foreign key constraints for BUDGET...
