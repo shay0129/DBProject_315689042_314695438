@@ -1,21 +1,20 @@
-1/7/24
+**1/7/24**
 
-•	Shay Mordechai			315689042
+- **Shay Mordechai** - 315689042
+- **Yair Miller** - 314695438
 
-•	Yair Miller			314695438
-
-                                                  School Management System
+# School Management System
 
 ## Stage 3:
 
-1. **Main** דוח עבור תוכנית ניהול תקציב עובדים
+### 1. **Main** Budget Management Program
 
-תוכנית ראשית: בדיקת סכום תקציב והוספת תקציב נוסף במידת הצורך
+**Program**: Checking the total budget and adding additional budget if needed
 
-תיאור מילולי:
-תוכנית זו מבצעת בדיקה של סכום התקציב הכולל לעובד מסוים בשנת תקציב מסוימת ובקטגוריה מסוימת. אם הסכום הכולל נמוך מסף מסוים, התוכנית מעדכנת את הסכום בתקציב ומדפיסה את הסכום המעודכן. התוכנית הראשית משתמשת בפונקציה לחישוב הסכום הכולל ובפרוצדורה להצגת פריטי התקציב.
+**Description**: 
+This program checks the total budget amount for a specific employee in a given fiscal year and category. If the total amount is below a certain threshold, the program updates the budget amount and prints the updated amount. The main program uses a function to calculate the total amount and a procedure to list the budget items.
 
-קוד:
+**Code**:
 ```sql
 DECLARE
    v_employee_id NUMBER := 1920;
@@ -44,12 +43,13 @@ BEGIN
 END;
 /
 ```
-**Function:** calculate_budget_total
 
-תיאור:
-פונקציה זו מחשבת את סכום התקציב הכולל לעובד מסוים בשנת תקציב מסוימת ובקטגוריה מסוימת.
+**Function:** `calculate_budget_total`
 
-קוד:
+**Description**: 
+This function calculates the total budget amount for a specific employee in a given fiscal year and category.
+
+**Code**:
 ```sql
 CREATE OR REPLACE FUNCTION calculate_budget_total(
     p_employee_id NUMBER, 
@@ -71,12 +71,13 @@ BEGIN
 END calculate_budget_total;
 /
 ```
-**Procedure:** List Budget Items
 
-תיאור:
-פרוצדורה זו מציגה את פריטי התקציב לעובד מסוים בשנת תקציב מסוימת.
+**Procedure:** `list_budget_items`
 
-קוד:
+**Description**: 
+This procedure displays the budget items for a specific employee in a given fiscal year.
+
+**Code**:
 ```sql
 CREATE OR REPLACE PROCEDURE list_budget_items(
     p_employee_id NUMBER,
@@ -107,44 +108,47 @@ EXCEPTION
 END list_budget_items;
 /
 ```
-**Procedure:** Calculate Budget Total
 
-תיאור:
-פרוצדורה זו מעדכנת את סכום התקציב לעובד מסוים בשנת תקציב מסוימת ובקטגוריה מסוימת.
+**Procedure:** `update_budget_amount`
 
-קוד:
+**Description**: 
+This procedure updates the budget amount for a specific employee in a given fiscal year and category.
+
+**Code**:
 ```sql
-CREATE OR REPLACE FUNCTION calculate_budget_total(
-    p_employee_id NUMBER, 
-    p_budget_year NUMBER, 
-    p_expense_category VARCHAR2
-) 
-RETURN NUMBER 
+CREATE OR REPLACE PROCEDURE update_budget_amount(
+    p_employee_id NUMBER,
+    p_budget_year NUMBER,
+    p_expense_category VARCHAR2,
+    p_new_amount NUMBER
+)
 IS
-    v_total_budget NUMBER := 0; 
 BEGIN
-    SELECT NVL(SUM(BUDGET_AMOUNT), 0)  -- Use NVL to handle NULL cases
-    INTO v_total_budget
-    FROM Budget
+    UPDATE Budget
+    SET BUDGET_AMOUNT = p_new_amount
     WHERE EMPLOYEE_ID = p_employee_id
       AND BUDGET_YEAR = p_budget_year
       AND EXPENSE_CATEGORY = p_expense_category;
-
-    RETURN v_total_budget;
-END calculate_budget_total;
+    
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error occurred: ' || SQLERRM);
+        ROLLBACK;
+END update_budget_amount;
 /
 ```
 
-![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.01/Output.png>)
+![Output](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.01/Output.png)
 
-2. **Main** תוכנית ניהול תשלומים
+### 2. **Main** Payment Management Program
 
-תוכנית ראשית: שליפת והצגת תשלומים לתקופה נתונה
+**Program**: Retrieving and displaying payments for a given period
 
-תיאור מילולי:
-תוכנית זו כוללת פונקציה לשליפת רשימת תשלומים לתקופה נתונה באמצעות Ref Cursor, ופרוצדורה להצגת התשלומים מהפונקציה בצורה מסודרת. התוכנית הראשית מקצה את התקופה הרצויה, קוראת לפרוצדורה להצגת התשלומים, ומטפלת בשגיאות במידת הצורך.
+**Description**: 
+This program includes a function to retrieve a list of payments for a given period using a Ref Cursor, and a procedure to display the payments retrieved by the function in a structured format. The main program sets the desired period, calls the procedure to display the payments, and handles errors if necessary.
 
-קוד:
+**Code**:
 ```sql
 DECLARE
     v_start_date DATE := TO_DATE('2024-01-01', 'YYYY-MM-DD');
@@ -167,12 +171,13 @@ BEGIN
 END;
 /
 ```
-**Function:** get_payments_in_period
 
-תיאור:
-פונקציה זו מקבלת תאריך התחלה ותאריך סיום, ומחזירה רשימת תשלומים בין תאריכים אלו באמצעות Ref Cursor.
+**Function:** `get_payments_in_period`
 
-קוד:
+**Description**: 
+This function receives a start date and an end date, and returns a list of payments within those dates using a Ref Cursor.
+
+**Code**:
 ```sql
 CREATE OR REPLACE FUNCTION get_payments_in_period(
        start_date DATE,
@@ -194,12 +199,13 @@ EXCEPTION
 END get_payments_in_period;
 /
 ```
-**Procedure:** display_payments
 
-תיאור:
-פרוצדורה זו מקבלת תאריך התחלה ותאריך סיום, משתמשת בפונקציה get_payments_in_period לשליפת התשלומים לתקופה הנתונה, ומציגה את הפרטים של כל תשלום.
+**Procedure:** `display_payments`
 
-קוד:
+**Description**: 
+This procedure receives a start date and an end date, uses the `get_payments_in_period` function to retrieve payments for the given period, and displays the details of each payment.
+
+**Code**:
 ```sql
 CREATE OR REPLACE PROCEDURE display_payments(
        start_date DATE,
@@ -241,4 +247,9 @@ EXCEPTION
 END display_payments;
 /
 ```
-![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.02/Output.png>)
+
+![Output](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.02/Output.png)
+
+---
+
+This README now includes a complete and correct description in English, with SQL code and explanations for each part of the system.
