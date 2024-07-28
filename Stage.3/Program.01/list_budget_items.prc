@@ -1,4 +1,4 @@
-CREATE OR REPLACE NONEDITIONABLE PROCEDURE list_budget_items(
+CREATE OR REPLACE PROCEDURE list_budget_items(
     p_employee_id NUMBER,
     p_budget_year NUMBER
 )

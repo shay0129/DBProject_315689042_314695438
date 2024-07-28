@@ -1,4 +1,4 @@
-CREATE OR REPLACE NONEDITIONABLE PROCEDURE update_budget_amount(
+CREATE OR REPLACE PROCEDURE update_budget_amount(
     p_employee_id NUMBER,
     p_budget_year NUMBER,
     p_expense_category VARCHAR2,

@@ -78,7 +78,7 @@ END calculate_budget_total;
 
 קוד:
 ```sql
-CREATE OR REPLACE NONEDITIONABLE PROCEDURE list_budget_items(
+CREATE OR REPLACE PROCEDURE list_budget_items(
     p_employee_id NUMBER,
     p_budget_year NUMBER
 )
@@ -174,7 +174,7 @@ END;
 
 קוד:
 ```sql
-CREATE OR REPLACE NONEDITIONABLE FUNCTION get_payments_in_period(
+CREATE OR REPLACE FUNCTION get_payments_in_period(
        start_date DATE,
        end_date DATE
 )
@@ -201,7 +201,7 @@ END get_payments_in_period;
 
 קוד:
 ```sql
-CREATE OR REPLACE NONEDITIONABLE PROCEDURE display_payments(
+CREATE OR REPLACE PROCEDURE display_payments(
        start_date DATE,
        end_date DATE
 )

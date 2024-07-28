@@ -1,4 +1,4 @@
-CREATE OR REPLACE NONEDITIONABLE PROCEDURE display_payments(
+CREATE OR REPLACE PROCEDURE display_payments(
        start_date DATE,
        end_date DATE
 )

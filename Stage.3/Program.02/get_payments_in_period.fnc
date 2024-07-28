@@ -1,4 +1,4 @@
-CREATE OR REPLACE NONEDITIONABLE FUNCTION get_payments_in_period(
+CREATE OR REPLACE FUNCTION get_payments_in_period(
        start_date DATE,
        end_date DATE
 )
