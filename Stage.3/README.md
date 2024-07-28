@@ -18,31 +18,36 @@
 קוד:
 ```sql
 DECLARE
-   v_employee_id NUMBER := 1500;
-   v_budget_year NUMBER := 2014;
-   v_expense_category VARCHAR2(50) := 'Rent or Lease Payments';
+   v_employee_id NUMBER := 1920;
+   v_budget_year NUMBER := 2015;
+   v_expense_category VARCHAR2(50) := 'PC Services';
    v_total_budget NUMBER;
    v_new_amount NUMBER := 15000;
    v_threshold NUMBER := 10000;
 BEGIN
-   v_total_budget := calculate_budget_total(v_employee_id, v_budget_year, v_expense_category);
-   DBMS_OUTPUT.PUT_LINE('Total budget for employee ID ' || v_employee_id || ' in year ' || v_budget_year || ' for category ' || v_expense_category || ': ' || v_total_budget);
+   BEGIN
+      v_total_budget := calculate_budget_total(v_employee_id, v_budget_year, v_expense_category);
+      DBMS_OUTPUT.PUT_LINE('Total budget for employee ID ' || v_employee_id || ' in year ' || v_budget_year || ' for category ' || v_expense_category || ': ' || v_total_budget);
 
-   IF v_total_budget < v_threshold THEN
-      update_budget_amount(v_employee_id, v_budget_year, v_expense_category, v_new_amount);
-      DBMS_OUTPUT.PUT_LINE('Budget amount updated for year ' || v_budget_year || ' and category ' || v_expense_category || ' to ' || v_new_amount);
-   ELSE
-      DBMS_OUTPUT.PUT_LINE('No update needed. Total budget is above the threshold.');
-   END IF;
+      IF v_total_budget < v_threshold THEN
+         update_budget_amount(v_employee_id, v_budget_year, v_expense_category, v_new_amount);
+         DBMS_OUTPUT.PUT_LINE('Budget amount updated for year ' || v_budget_year || ' and category ' || v_expense_category || ' to ' || v_new_amount);
+      ELSE
+         DBMS_OUTPUT.PUT_LINE('No update needed. Total budget is above the threshold.');
+      END IF;
 
-   list_budget_items(v_employee_id, v_budget_year);
+      list_budget_items(v_employee_id, v_budget_year);
+   EXCEPTION
+      WHEN OTHERS THEN
+         DBMS_OUTPUT.PUT_LINE('Error occurred: ' || SQLERRM);
+   END;
 END;
 /
 ```
 **Function:** calculate_budget_total
 
 תיאור:
-פונקציה זו מקבלת מספר עובד, שנת תקציב וקטגורית הוצאות, ומחזירה את סכום התקציב הכולל עבורם.
+פונקציה זו מחשבת את סכום התקציב הכולל לעובד מסוים בשנת תקציב מסוימת ובקטגוריה מסוימת.
 
 קוד:
 ```sql
@@ -66,10 +71,10 @@ BEGIN
 END calculate_budget_total;
 /
 ```
-**Procedure:** list_budget_items
+**Procedure:** List Budget Items
 
 תיאור:
-פרוצדורה זו מקבלת מספר עובד ושנת תקציב, ומדפיסה את פרטי התקציב (קטגוריה וסכום) עבור העובד והשנה הנתונה.
+פרוצדורה זו מציגה את פריטי התקציב לעובד מסוים בשנת תקציב מסוימת.
 
 קוד:
 ```sql
@@ -77,28 +82,62 @@ CREATE OR REPLACE NONEDITIONABLE PROCEDURE list_budget_items(
     p_employee_id NUMBER,
     p_budget_year NUMBER
 )
-IS -- IS: Declare the procedure
-    CURSOR budget_cursor IS -- IS: Declare a cursor
+IS
+    CURSOR budget_cursor IS
         SELECT EXPENSE_CATEGORY, BUDGET_AMOUNT
         FROM Budget
         WHERE EMPLOYEE_ID = p_employee_id
           AND BUDGET_YEAR = p_budget_year;
 
-    budget_rec budget_cursor%ROWTYPE; -- Record type to hold cursor data
+    budget_rec budget_cursor%ROWTYPE;
 BEGIN
     OPEN budget_cursor;
     LOOP
-        FETCH budget_cursor INTO budget_rec; -- Fetch into the record type, because the cursor is strongly typed.
-        EXIT WHEN budget_cursor%NOTFOUND; -- Exit the loop when no more rows are found.
+        FETCH budget_cursor INTO budget_rec;
+        EXIT WHEN budget_cursor%NOTFOUND;
         DBMS_OUTPUT.PUT_LINE('Category: ' || budget_rec.EXPENSE_CATEGORY || ', Amount: ' || budget_rec.BUDGET_AMOUNT);
     END LOOP;
     CLOSE budget_cursor;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error occurred: ' || SQLERRM);
+        IF budget_cursor%ISOPEN THEN
+            CLOSE budget_cursor;
+        END IF;
 END list_budget_items;
 /
 ```
+**Procedure:** Calculate Budget Total
+
+תיאור:
+פרוצדורה זו מעדכנת את סכום התקציב לעובד מסוים בשנת תקציב מסוימת ובקטגוריה מסוימת.
+
+קוד:
+```sql
+CREATE OR REPLACE FUNCTION calculate_budget_total(
+    p_employee_id NUMBER, 
+    p_budget_year NUMBER, 
+    p_expense_category VARCHAR2
+) 
+RETURN NUMBER 
+IS
+    v_total_budget NUMBER := 0; 
+BEGIN
+    SELECT NVL(SUM(BUDGET_AMOUNT), 0)  -- Use NVL to handle NULL cases
+    INTO v_total_budget
+    FROM Budget
+    WHERE EMPLOYEE_ID = p_employee_id
+      AND BUDGET_YEAR = p_budget_year
+      AND EXPENSE_CATEGORY = p_expense_category;
+
+    RETURN v_total_budget;
+END calculate_budget_total;
+/
+```
+
 ![Output:](<https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.3/Program.01/Output.png>)
 
-2. **Main 2** דוח עבור תוכנית תשלומים
+2. **Main 2** תוכנית ניהול תשלומים
 
 תוכנית ראשית: שליפת והצגת תשלומים לתקופה נתונה
 
@@ -112,8 +151,19 @@ DECLARE
     v_end_date DATE := TO_DATE('2024-12-31', 'YYYY-MM-DD');
     payment_cursor SYS_REFCURSOR;
 BEGIN
-    display_payments(v_start_date, v_end_date);
-    payment_cursor := get_payments_in_period(v_start_date, v_end_date);
+    BEGIN
+        display_payments(v_start_date, v_end_date);
+    EXCEPTION
+        WHEN OTHERS THEN
+            DBMS_OUTPUT.PUT_LINE('Error in display_payments: ' || SQLERRM);
+    END;
+
+    BEGIN
+        payment_cursor := get_payments_in_period(v_start_date, v_end_date);
+    EXCEPTION
+        WHEN OTHERS THEN
+            DBMS_OUTPUT.PUT_LINE('Error in get_payments_in_period: ' || SQLERRM);
+    END;
 END;
 /
 ```
