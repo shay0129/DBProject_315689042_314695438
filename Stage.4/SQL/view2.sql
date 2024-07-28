@@ -1,3 +1,4 @@
+-- View 2: StudentActivityDetails
 CREATE VIEW StudentActivityDetails AS
 SELECT 
     a.activity_id,
@@ -15,8 +16,7 @@ JOIN
 JOIN 
     Student st ON ac.student_id = st.student_id;
 
-
-
+-- Query 1: Total Students and Average Grade by Activity
 SELECT 
     activity_id,
     activity_name,
@@ -27,8 +27,7 @@ FROM
 GROUP BY 
     activity_id, activity_name;
 
-
-
+-- Query 2: Activities with more than 20 students and average grade > 8
 SELECT 
     activity_id,
     activity_name,

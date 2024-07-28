@@ -1,3 +1,4 @@
+-- View 1: SubjectTeacherDetails
 CREATE VIEW SubjectTeacherDetails AS
 SELECT 
     s.Subject_Name,
@@ -15,7 +16,7 @@ JOIN
     Employee e ON t.Employee_ID = e.Employee_ID;
 
 
-
+-- Query 1: Total Students and Average Difficulty by Employee
 SELECT 
     Employee_ID,
     Employee_Name,
@@ -29,7 +30,7 @@ GROUP BY
     Employee_ID, Employee_Name, Job_Title, Seniority;
 
 
-
+-- Query 2: Employees with more than 2 subjects with difficulty level > 4
 SELECT 
     Employee_ID,
     Employee_Name,
