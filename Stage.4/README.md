@@ -30,29 +30,12 @@ At this stage, we used an automatic PL/SQL tool to create a Data Structure (DS) 
    - **Action**: Create a connector in the ERD.
    - **Explanation**: When a table is altered, it typically means an existing entity's structure is modified, which might affect the relationships or constraints of the entity.
 
-3. **Alter Table with Foreign Key (`alter table` with `add foreign key`)**:
+3. **Table with Foreign Key**:
    - **Action**: Create a "one to many" relationship.
-   - **Explanation**: Adding a foreign key establishes a relationship between two entities:
-     - **One-Side**: The entity that includes the foreign key.
-     - **Many-Side**: The entity being referenced by the foreign key.
-   - **Additional Action**: If a table (entity) referenced by the foreign key does not already exist in the ERD, it should be added.
+   - **For us**: Create an entity in the ERD to reflect the addition of COUNSELOR_ID as a foreign key.
+   - **One-Side**: **STUDENT** (a student can only be associated with one counselor).
+   - **Many-Side**: **COUNSELOR** (one counselor can have many students).
 
-Example Explained
-```sql
-alter table STUDENT_
-  add foreign key (COUNSELOR_ID)
-  references COUNSELOR (COUNSELOR_ID);
-```
-
-- **STUDENT_** is the table being altered, and it includes a foreign key `COUNSELOR_ID`.
-- **COUNSELOR** is the table being referenced.
-
-**Actions**:
-- **STUDENT_**: Create or modify an existing entity in the ERD to reflect the addition of `COUNSELOR_ID` as a foreign key.
-- **COUNSELOR**: Ensure this entity exists in the ERD as it is being referenced.
-- **Relationship**: Establish a "one to many" relationship where:
-  - **One-Side**: **COUNSELOR** (one counselor can be associated with many students).
-  - **Many-Side**: **STUDENT_** (many students can have one counselor).
 
 2. **Part 2** - Integrated:
 
