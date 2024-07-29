@@ -1109,29 +1109,12 @@ At this stage, we used an automatic PL/SQL tool to create a Data Structure (DS) 
    - **Action**: Create a connector in the ERD.
    - **Explanation**: When a table is altered, it typically means an existing entity's structure is modified, which might affect the relationships or constraints of the entity.
 
-3. **Alter Table with Foreign Key (`alter table` with `add foreign key`)**:
+3. **Table with Foreign Key**:
    - **Action**: Create a "one to many" relationship.
-   - **Explanation**: Adding a foreign key establishes a relationship between two entities:
-     - **One-Side**: The entity that includes the foreign key.
-     - **Many-Side**: The entity being referenced by the foreign key.
-   - **Additional Action**: If a table (entity) referenced by the foreign key does not already exist in the ERD, it should be added.
+   - **For us**: Create an entity in the ERD to reflect the addition of COUNSELOR_ID as a foreign key.
+   - **One-Side**: **STUDENT** (a student can only be associated with one counselor).
+   - **Many-Side**: **COUNSELOR** (one counselor can have many students).
 
-Example Explained
-```sql
-alter table STUDENT_
-  add foreign key (COUNSELOR_ID)
-  references COUNSELOR (COUNSELOR_ID);
-```
-
-- **STUDENT_** is the table being altered, and it includes a foreign key `COUNSELOR_ID`.
-- **COUNSELOR** is the table being referenced.
-
-**Actions**:
-- **STUDENT_**: Create or modify an existing entity in the ERD to reflect the addition of `COUNSELOR_ID` as a foreign key.
-- **COUNSELOR**: Ensure this entity exists in the ERD as it is being referenced.
-- **Relationship**: Establish a "one to many" relationship where:
-  - **One-Side**: **COUNSELOR** (one counselor can be associated with many students).
-  - **Many-Side**: **STUDENT_** (many students can have one counselor).
 
 2. **Part 2** - Integrated:
 
@@ -1279,6 +1262,7 @@ JOIN
    ---------------------------------------------------
    101         | John Doe      | 3
    ```
+   ![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.4/SQL/View1_output.png)
 
 ### 2. View: `StudentActivityDetails`
 
@@ -1357,103 +1341,4 @@ JOIN
    --------------------------------------------------------------
    201         | Soccer         | 25                 | 8.2
    ```
-
-### Summary
-
-- **`SubjectTeacherDetails` View**: Aggregates subject and teacher data, allowing detailed analysis of teachers' subject loads and difficulties.
-- **`StudentActivityDetails` View**: Aggregates activity and student data, enabling insights into student participation and performance in various activities.
-
-These views and queries help in deriving meaningful insights from complex relationships between entities in the database.
-
-Here’s an explanation for the `StudentActivityDetails` view and the associated queries, including their purposes, the SQL code, and examples of what the results might look like:
-
-### 1. View: `StudentActivityDetails`
-
-**Description**: 
-The `StudentActivityDetails` view provides detailed information about student participation in activities. It combines data from the `Activity`, `Active`, and `Student` tables to offer a comprehensive view of each activity, its capacity, and the students involved.
-
-**SQL Code**:
-```sql
-CREATE VIEW StudentActivityDetails AS
-SELECT 
-    a.activity_id,
-    a.date_of_activity,
-    a.activity_name,
-    a.capacity,
-    st.student_id,
-    st.student_name,
-    st.grade,
-    st.counselor_id
-FROM 
-    Activity a
-JOIN 
-    Active ac ON a.activity_id = ac.activity_id
-JOIN 
-    Student st ON ac.student_id = st.student_id;
-```
-
-### Queries on `StudentActivityDetails` View
-
-1. **Query 1: Total Students and Average Grade by Activity**
-
-   **Description**: This query retrieves the total number of students and the average grade for each activity. It helps in understanding the overall participation and performance in each activity.
-
-   **SQL Code**:
-   ```sql
-   SELECT 
-       activity_id,
-       activity_name,
-       COUNT(student_id) AS Total_Students,
-       AVG(grade) AS Average_Grade
-   FROM 
-       StudentActivityDetails
-   GROUP BY 
-       activity_id, activity_name;
-   ```
-
-   **Sample Output**:
-   ```
-   ACTIVITY_ID | ACTIVITY_NAME | TOTAL_STUDENTS | AVERAGE_GRADE
-   ---------------------------------------------------------------
-   301         | Robotics      | 25             | 8.1
-   302         | Art Workshop   | 15             | 7.5
-   303         | Debate Club    | 22             | 8.9
-   ```
-
-   **Explanation**: This query provides a summary of each activity's total student count and average student grade, which helps in evaluating the popularity and performance of activities.
-
-2. **Query 2: Activities with More Than 20 Students and Average Grade > 8**
-
-   **Description**: This query lists activities where the number of students is greater than 20 and the average grade of the students is above 8. This helps in identifying high-performing activities with substantial student engagement.
-
-   **SQL Code**:
-   ```sql
-   SELECT 
-       activity_id,
-       activity_name,
-       COUNT(student_id) AS Number_of_Students,
-       AVG(grade) AS Average_Grade
-   FROM 
-       StudentActivityDetails
-   GROUP BY 
-       activity_id, activity_name
-   HAVING 
-       COUNT(student_id) > 20 AND AVG(grade) > 8;
-   ```
-
-   **Sample Output**:
-   ```
-   ACTIVITY_ID | ACTIVITY_NAME | NUMBER_OF_STUDENTS | AVERAGE_GRADE
-   ---------------------------------------------------------------
-   303         | Debate Club    | 22                 | 8.9
-   ```
-
-   **Explanation**: This query identifies activities with a significant number of students and high average grades, highlighting popular and successful activities based on student performance.
-
-### Summary
-
-- **`StudentActivityDetails` View**: Aggregates data on student participation in activities, including activity details and student information.
-- **Query 1**: Provides a summary of total students and average grades for each activity.
-- **Query 2**: Focuses on activities with more than 20 students and an average grade greater than 8, identifying high-performing and well-attended activities.
-
-These views and queries facilitate comprehensive analysis of student activity participation and performance, enabling better insights into student engagement and the effectiveness of different activities.
+![alt text](https://github.com/shay0129/DBProject_315689042_314695438/blob/main/Stage.4/SQL/View2_output.png)
